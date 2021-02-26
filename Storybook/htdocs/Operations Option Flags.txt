@@ -1,0 +1,40 @@
+Comic Builder is set up to accomplish web image Comic creation in two ways.
+
+Ordinarily the application presents itself as a tool to enable a user to create and subsequently download a ZIP archive containing all the content for a web image Comic. The user can then unZip the archive to display and use the web Comic they made. In this mode Comic Builder does not save any content from users, and in fact it deletes the ZIP archive after a timeout delay.
+
+The second way to use Comic Builder is as a tool to make and display web image Comic pages to then host on the site where Comic Builder is installed. There is a lovely term, "eat your own dogfood", and I use Comic Builder to create image Comic pages that I display on my own domain. I simply use the "skippy" option described below. ☺ This could be used by a school or other organization with a web domain to allow students to build and upload galleries of their graphics work to be displayed on the school site.
+
+
+Operations Option Flags 
+------------------
+"buoy" enables the election of a navigation menu on the Comic page
+ => by default Comic Builder does not include a navigation menu bar, this option offers a menu entry to install a navigation menu with display/hide on web Comic page load. I have this to allow me to add my site wide navigation menu bar to each Comic.
+ => buoy requires two factors to activate and invoke it
+	* first, a query (ie ComicBuilder/index.php?buoy=buoy ) is used to invoke or load the index.php file in the Comic builder folder
+	* second, a file named buoy.txt must be present in the root /includes folder
+	 => follow these steps to invoke this option (must be enabled by having a file named buoy.txt in the root /includes folder!)
+		1) from the ComicBuilder home page click the [NEXT] button, this will load the index.php file
+		2) modify the URL in the browser address bar by appending the query ?buoy=buoy as for example ... /ComicBuilder/index.php?buoy=buoy
+		3) reload the page. now the navigation menu option choices will be shown in the dialog.
+
+These next five options all require two factors to activate and invoke them
+	* first, all of these options are only activated when a file named options.txt is present in the root /includes folder
+ 	* second, a query (for example ComicBuilder/Yield.php?skippy=skippy ) is used to invoke or load the yield.php file in the Comic builder folder once all the Comic content has been loaded, which occurs when the OG Image dialog completes. additional options separated by ampersands may be included in the query (for example ComicBuilder/Yield.php?saveC=saveC&saveDB=saveDB which will create and download a ZIP archive of the content AND leave the content and the associated database available for reuse/reedit )
+ 
+"skippy" causes Comic Builder to make a web page but does not make a download archive
+ => by default Comic Builder makes an archive to be downloaded, but this option allows it to instead build galleries to be used on the site where it is installed. No archive file is created. I use this option to make galleries to display on my site that I don't wish to download as archives.
+ => this is the option to use to have Comic Builder make a page to use on your host, without making an archive and downloading it
+
+"saveC" disables content deletion after creating the ZIP archive
+ => by default Comic Builder purges local working storage and database contents after creating the archive
+ => allows continued use or reuse of uploaded content, useful to allow both downloading a Comic archive and still leave the content on the host. saveC does NOT save the database contents, that is still purged. I use this to both create an archive to download and set up a Comic on my site.
+
+"saveDB" disables the clean SQL database function
+ => by default Comic Builder cleans the database after making a Comic
+ => at present the database is no longer used once a Comic is created!
+ => allows image content database to be reused, for example to build another Comic or provide options that might use a database. saveDB does NOT save the content.
+
+"useC" causes Comic Builder to use the already existing HTML file to include in the archive
+ => by default Comic Builder creates an HTML file to include in the archive instead of using one already present from a previous operation
+
+"Comic" requires a query with a value which is the name of a Comic content folder that contains a previously saved configuration file with the same name.  This option also requires that the database contain the appropriate Comic information.
