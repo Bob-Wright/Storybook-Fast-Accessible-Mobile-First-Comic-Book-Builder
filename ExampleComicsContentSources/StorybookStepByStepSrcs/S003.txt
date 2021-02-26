@@ -1,0 +1,1 @@
+To invoke Storybook from the gallery landing page you can click the menu icon on the header bar and then chhose Run the Storybook Comic Builder from the buttons list. In addition to launching Storybook the menu offers a few other choices, some of which may have a small entertainment value.

@@ -1,0 +1,1 @@
+After a short delay the Creator will reload and display this dialog page to allow the user to easily share their comic to Facebook and also to allow them to optionally download a ZIP archive of their comic. There is a timeout counter which is reset by cursor movements (eg a mouse motion) but after 30 seconds of inactivity the user is redirected to their new comic.

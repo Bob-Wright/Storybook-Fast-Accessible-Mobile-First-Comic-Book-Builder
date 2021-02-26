@@ -1,0 +1,1 @@
+Storybook Comic Book Builder demonstrates a design for an Accessible Content Management System that in turn creates accessible documents, some of which may be thinly disguised as web comic books. The front end for Storybook is nominally a gallery of web comic books as shown here.

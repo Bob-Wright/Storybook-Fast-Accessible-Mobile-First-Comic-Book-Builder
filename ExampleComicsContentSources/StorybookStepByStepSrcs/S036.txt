@@ -1,0 +1,3 @@
+The newly created comic satisfies the WebAIM evaluation for WCAG. Because the comic has three animations that use a longer than 125 character description the eval warns us about those captions as alerts.
+
+That summarizes the process of creating a Storybook Comic Book. What we have is an accessible application that creates and hosts accessible content.

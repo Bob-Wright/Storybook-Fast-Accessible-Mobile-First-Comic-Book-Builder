@@ -1,0 +1,2 @@
+To share the comic on Facebook it is best to have a specified "preview image" that Facebook will use in the display of the link.
+This is the last dialog in the content gathering sequence, and clicking "Next" in this dialog will set us up to actually create the comic.

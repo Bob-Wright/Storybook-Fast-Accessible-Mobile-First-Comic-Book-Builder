@@ -1,0 +1,1 @@
+The alt text dialog also satisfies the WebAIM evaluation.
