@@ -1,0 +1,1 @@
+Storybook uses Facebook to perform user authentication and logins. Here we have also asked the user to give Storybook a &#34;Like&#34; on Facebook.

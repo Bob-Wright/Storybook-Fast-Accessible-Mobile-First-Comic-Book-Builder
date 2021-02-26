@@ -1,0 +1,1 @@
+Each panel may have an optional Caption Text panel.

@@ -1,0 +1,1 @@
+Now we have an addition to our Storybook Comic Books Gallery, our newly created comic which was titled &#34;BMG Enhanced&#34;.
