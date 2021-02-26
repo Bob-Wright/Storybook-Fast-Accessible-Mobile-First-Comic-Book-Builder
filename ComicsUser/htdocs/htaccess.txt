@@ -1,0 +1,39 @@
+ErrorDocument 404 "https://syntheticreality.net/404.html"
+IndexIgnore *
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+##Tweaks##
+Header set X-Frame-Options SAMEORIGIN
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access 1 year"
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresByType text/css "access 1 week"
+ExpiresByType text/js "access 1 week"
+ExpiresByType text/html "access 1 week"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType text/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresDefault "access 1 month"
+</IfModule>
+## EXPIRES CACHING ##
+
+<IfModule mod_headers.c>
+<filesmatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|ttf|otf|woff|woff2|eot|svg)$">
+ Header set Cache-Control "max-age=31536000, public"
+</filesmatch>
+# css and js should use private for proxy caching https://developers.google.com/speed/docs/best-practices/caching#LeverageProxyCaching
+<filesmatch "\.(css|js)$">
+	Header set Cache-Control "max-age=14400, private"
+</filesmatch>
+<filesMatch "\.(x?html?|shtml|php)$">
+	Header set Cache-Control "max-age=600, private, must-revalidate"
+</filesMatch>
+</IfModule>

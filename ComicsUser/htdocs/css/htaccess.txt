@@ -1,0 +1,4 @@
+#prevent image hotlinking
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} !^https://syntheticreality.net/ [NC]
+RewriteRule .*.(jpeg|jpg|gif|png|txt|ssi|js|css|php|shtml|html)$ https://syntheticreality.net/hotlinkAngryman.jpg [R,L]
