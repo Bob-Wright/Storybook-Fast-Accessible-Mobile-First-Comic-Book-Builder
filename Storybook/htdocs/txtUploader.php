@@ -77,11 +77,25 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!(empty($_POST) && empty($_FILES)
 	$pattern = '/(\n|\r\n|\r)/';
 	$replacement = '[newline]';
 	$uploadedText = preg_replace($pattern, $replacement, $uploadedText);
+	if($_SESSION['pageimage'] == 'captions') {
+		$pattern = '/</';
+		$replacement = '[L]';
+		$uploadedText = preg_replace($pattern, $replacement, $uploadedText);
+		$pattern = '/>/';
+		$replacement = '[R]';
+		$uploadedText = preg_replace($pattern, $replacement, $uploadedText);
+	}
 	//sanitize string
 	$uploadedText = filter_var($uploadedText, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_BACKTICK);
 	if ($uploadedText != '') {
 		$pattern = '/\[newline\]/';
 		$replacement = '<br>';
+		$uploadedText = preg_replace($pattern, $replacement, $uploadedText);
+		$pattern = '/\[L\]/';
+		$replacement = '<';
+		$uploadedText = preg_replace($pattern, $replacement, $uploadedText);
+		$pattern = '/\[R\]/';
+		$replacement = '>';
 		$uploadedText = preg_replace($pattern, $replacement, $uploadedText);
 		$_SESSION["uploadedText"] = $uploadedText;
 			$commentlength = strlen($uploadedText);

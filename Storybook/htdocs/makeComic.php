@@ -16,6 +16,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (isset($_POST['Comicname'])) && ($
 	//	session_id($_COOKIE['Storybook']);}
 	require_once("/home/bitnami/session2DB/Zebra.php");
 //}
+$showFigCntr = false;
 $Comicname = $_SESSION['Comicname'];
 $siteurl = $_SESSION['siteurl'];
 $Comics = '/home/bitnami/Comics/htdocs/';
@@ -83,29 +84,65 @@ $head4 = <<< EOT4
 * {
  box-sizing: border-box;
 }
-/* @font-face {
-	font-family: "Merriweather";
-	src: url("./Fonts/Merriweather-Regular.ttf") format("truetype");
-  }
-@font-face {
-	font-family: "Merriweather Black";
-	src: url("./Fonts/Merriweather-Black.ttf") format("truetype");
-  } */
-@font-face {
-	font-family: "Roboto Slab";
-	src: url("./Fonts/RobotoSlab-Regular.ttf") format("truetype");
-  }
+EOT4;
+echo $head4;
+if(isset($_SESSION['pfont']) && isset($_SESSION['pfontfile'])) {
+	$pfont = $_SESSION['pfont'];
+	$pfontfile = $_SESSION['pfontfile'];
+	echo $pfontfile;
+} else {
+	echo
+		'@font-face {'.
+		'font-family: "Merriweather";'.
+		'src: url("./Fonts/Merriweather-Regular.ttf") format("truetype"); }';
+		$pfont = 'Merriweather';
+}
+if(isset($_SESSION['hfont']) && isset($_SESSION['hfontfile'])) {
+	$hfont = $_SESSION['hfont'];
+	$hfontfile = $_SESSION['hfontfile'];
+	echo $hfontfile;
+} else {
+	echo
+		'@font-face {'.
+		'font-family: "Roboto";'.
+		'src: url("./Fonts/Roboto-Regular.ttf") format("truetype"); }';
+		$hfont = 'Roboto';
+}
+$head4a = <<< EOT4a
 @font-face {
 	font-family: "Comic Neue";
 	src: url("./Fonts/ComicNeue-Regular.ttf") format("truetype");
   }
-/* @font-face {
-	font-family: "Roboto";
-	src: url("./Fonts/Roboto-Regular.ttf") format("truetype");
-  } */
 body {
  font-family: "Comic Neue";
 }
+.card-body {
+EOT4a;
+echo $head4a;
+echo
+ 'font-family: '.$pfont.';
+ font-size: 1.5vw;
+ }
+.card-body h1 {
+ font-family: '.$hfont.';
+ text-align: left;
+ font-size: 2vw;
+ }
+.card-body h2 {
+ font-family: '.$hfont.';
+ text-align: left;
+ font-size: 1.75vw;
+ }
+.card-body h3 {
+ font-family: '.$hfont.';
+ text-align: left;
+ font-size: 1.5vw;
+ }
+.card-body p {
+ font-family: '.$pfont.';';
+$head4b = <<< EOT4b
+ font-size: 1.5vw;
+ }
 .clickMeOverlay {
  display: block;
  z-index: 30;
@@ -116,27 +153,13 @@ body {
  z-index: 30;
  opacity: 0.7;
 }
-/*.playGIF {
- text-align: center;
- }*/
-.bi-layout-wtf {
-width: 1.6rem; height: 1.6rem;
+
+/*@media (min-width: 1200px) {
+font-size: 1.4vw;
+}*/
 }
-.card .card-body .card-text {
- text-align: left;
- font-size: 1.3rem;
- }
-@media (min-width: 1200px) {
-.card .card-body .card-text {
- text-align: left;
- font-size: 1.4rem;
-}
-.bi-layout-wtf {
-width: 3rem; height: 3rem;
-}
-}
-EOT4;
-echo $head4;
+EOT4b;
+echo $head4b;
 if(isset($_SESSION['bkgndImage'])) {
 	$bkgndImage = $_SESSION['bkgndImage'];
 $headC1 = <<< EOTC1
@@ -174,16 +197,14 @@ $head5 = <<< EOT5
 <!-- +++++++++++++++++++++++ -->
 <!-- Build out the page -->
 <body class="container-fluid main-container d-flex flex-column align-items-top #929fba mdb-color lighten-3">
-      <h1 class="sr-only text-dark font-weight-bolder">A Storybook Comic</h1>
+EOT5;
+echo $head5;
+echo
+	'<h1 class="sr-only">'.$_SESSION['cardTitle'].'</h1>';
+$head6 = <<<EOT6
 <!--#include file="./includes/browserupgrade.ssi" -->
 <main class="imgblock row flex-row row-no-gutters justify-content-center" id="container">
 
-EOT5;
-echo $head5;
-	//echo 'ID = '.session_id();
-	//if(isset($_COOKIE['Storybook'])) {
-	//echo '<h2>Storybook Cookie is = '. ($_COOKIE['Storybook']) .'</h2><br>';}
-$head6 = <<< EOT6
 <!-- ++++++++++++++++++++ -->
 <!--  build comic pages -->
 <!-- ++++++++++++++++++++ -->
@@ -234,7 +255,7 @@ for ($i = 0; $i <  count($imageList); $i++) {
 	$created = $_SESSION['imageData']['created'];
 	$FigDesc = 'This file is named&emsp;'.$filename.'.';
 	//$FigCntr = '[ '.$imageIndex.' of '.count($imageList).' ]';
-	$FigCntr = '[ '.$imageIndex.' ]';
+	$FigCntr = '[&nbsp;p&emsp;'.$imageIndex.'&nbsp;]';
 
 	// now have an array of values for this image
 	// see if we have alt text for this image
@@ -343,23 +364,28 @@ if($altimg == '') { //no alt image to display
 			echo
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>'.
 				'<div class="card col-sm-11 d-flex flex-column shadow-md #ef9a9a danger-color-lite lighten-3 px-sm-0">'.
-				'<div class="card-body"><h2 style="text-align: center;" class="font-weight-bolder text-dark"><b>To be continued...</b></h2></div>'.
+				'<div class="card-body"><h2 style="text-align: center;"><b>To be continued...</b></h2></div>'.
 				'</div>'.
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
 		} else {
 			echo
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>'.
 				'<div class="card col-sm-11 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">'.
-				'<div class="card-body"><p class="card-text font-weight-bolder text-dark">'.$caption.'<br>'.$FigCntr.'</p></div>'.
-				'</div></div>'.
+				'<div class="card-body">'.$caption.'</div>'.
+				'</div>'.
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
 		}
-	} else {
+	}
+	if($caption == '') {
 		echo
+			'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
+	}
+	if($showFigCntr == true) {
+			echo
 			'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>'.
-			'<div class="card col-sm-11 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">'.
-			'<div class="card-body"><p class="card-text font-weight-bolder text-dark">'.$FigCntr.'</p></div>'.
-			'</div></div>'.
+			'<div class="card col-sm-1 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">'.
+			'<div class="card-body"><h2 class="card-text font-weight-bolder text-dark">'.$FigCntr.'</h2></div>'.
+			'</div>'.
 			'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
 	}
 
@@ -373,18 +399,19 @@ if($altimg != '') { // there is an alt image
 	} else {
 		echo // we have audio
 		'<img id="" src="./'.$Comicname.'/'.$filename.'" width="'.$width.'" height="'.$height.'" alt="'.$altText.'" altText="'.$altText.'" altImg="./'.$Comicname.'/altImgs/'.$altimg.'" altImgText="'.$altImgText.'" altMP3="./'.$Comicname.'/altImgs/'.$altimgmp3.'">'.
-		'<audio class="comicAudio" src="./'.$Comicname.'/altImgs/'.$altimgmp3.'"></audio>';
+		'<audio class="comicAudio" src="./'.$Comicname.'/altImgs/'.$altimgmp3.'" alt="'.$altImgText.'"></audio>';
 	}
 $playerbutton = <<< PB1
-	<div class="card col-sm-11 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0 clickMeOverlay align-items-center">
+	<div class="card col-sm-1 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0 clickMeOverlay align-items-center">
 	<svg class="playButton" width="4rem" height="4rem" viewBox="0 0 16 16" class="bi bi-play" fill="white" xmlns="http://www.w3.org/2000/svg">
 	<path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
-	</svg></div></div>
+	</svg></div>
+	</div>
 PB1;
 	echo $playerbutton;
 	if($altimgmp3 != '') { // if we have audio add mute/unmute button
 $audiobuttons = <<< AB1
-	<div id="mute-audio" class="MP3Overlay">
+	<div id="mute-audio" class="card col-sm-9 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0 MP3Overlay align-items-center"><h3 class="card-text font-weight-bolder text-dark">Audio on/off status&emsp;
 	<svg width="5rem" height="5rem" viewBox="0 0 16 16" class="bi bi-volume-mute" fill="red" xmlns="http://www.w3.org/2000/svg">
 	  <path fill-rule="evenodd" d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zM6 5.04L4.312 6.39A.5.5 0 0 1 4 6.5H2v3h2a.5.5 0 0 1 .312.11L6 10.96V5.04zm7.854.606a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708l4-4a.5.5 0 0 1 .708 0z"/>
 	  <path fill-rule="evenodd" d="M9.146 5.646a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0z"/>
@@ -395,7 +422,7 @@ $audiobuttons = <<< AB1
 	  <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
 	  <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707z"/>
 	</svg>
-	</div>
+	&emsp;Toggle audio on/off</h3></div>
 AB1;
 	echo $audiobuttons;
 	}
@@ -404,30 +431,34 @@ AB1;
 			echo
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>'.
 				'<div class="card col-sm-11 d-flex flex-column shadow-md #ef9a9a danger-color-lite lighten-3 px-sm-0">'.
-				'<div class="card-body"><h2 style="text-align: center;" class="font-weight-bolder text-dark"><b>To be continued...</b></h2></div>'.
-				'</div></div></div>'.
+				'<div class="card-body"><h2 style="text-align: center;"><b>To be continued...</b></h2></div>'.
+				'</div>'.
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
 		} else {
 			echo
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>'.
 				'<div class="card col-sm-11 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">'.
-				'<div class="card-body"><p class="card-text font-weight-bolder text-dark">'.$caption.'<br>'.$FigCntr.'</p></div>'.
-				'</div></div>'.
+				'<div class="card-body">'.$caption.'</div>'.
+				'</div>'.
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
 		}
-	} else {
+	}
+	if($caption == '') {
 		echo
+			'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
+	}
+	if($showFigCntr == true) {
+			echo
 			'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>'.
-			'<div class="card col-sm-11 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">'.
-			'<div class="card-body"><p class="card-text font-weight-bolder text-dark">'.$FigCntr.'</p></div>'.
-			'</div></div>'.
+			'<div class="card col-sm-1 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">'.
+			'<div class="card-body"><h2 class="card-text font-weight-bolder text-dark">'.$FigCntr.'</h2></div>'.
+			'</div>'.
 			'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
 	}
 }
-	}
 	next($imageList);
 }
-
+}
 $head9 = <<< EOT9
 	<!-- +++++++++++++++++++++++ -->
 <div class="row justify-content-end fixed-top">

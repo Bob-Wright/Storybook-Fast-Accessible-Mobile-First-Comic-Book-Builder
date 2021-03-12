@@ -586,9 +586,7 @@ if($_SESSION['usedSavedConfig'] == 1) { //because of 'Comic' query string, alrea
 			'<p>No Configuration Data file exists with Comic Name matching '.$Comicname.'</p>'.
 			'<form id="saveconfigDisplay" action="./saveConfig.php" method="post">'.
 			'You may save new Configuration and Gallery card files with the displayed values.<br>This will start building your '.$Comicname.' Comic.<br>'.
-			'<label>Check to preserve any present content:&emsp;<input class="checkbox" type="hidden" id="saveCheckbox" name="saveCheckbox" value="1" checked><br>'.
-			'<!-- visual dummy for the user -->'.
-			'<input type="checkbox" name="my_name_visual_dummy" value="1" checked="checked" disabled="disabled" />'.
+			'<label style="opacity: 0;">Check to preserve any present content:&emsp;<input class="checkbox" type="hidden" id="saveCheckbox" name="saveCheckbox" value="1" checked></label><br>'.
 			'<label>Save the Configuration and Card data:&emsp;<input type="submit" value="Apply"></label></form><br>';
 		} else {
 			$configFileContents = file_get_contents('/home/bitnami/Comics/htdocs/'.$Comicname.'/'.$Comicname.'.php');

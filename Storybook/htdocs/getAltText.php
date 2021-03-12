@@ -111,7 +111,7 @@ echo $head2;
          $(function(){
             $("input[type = 'submit']").click(function(){
                var $fileUpload = $("input[type='file']");
-               if (parseInt($fileUpload.get(0).files.length) > 24){
+               if (parseInt($fileUpload.get(0).files.length) > 48){
                   alert("You are only allowed to upload 24 Comic image alt text files!");
 				  window.location.replace("https://syntheticreality.net/Storybook/getAltText.php");
                } 
