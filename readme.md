@@ -19,3 +19,6 @@ If Yield.php finds everything acceptable it will offer to create the comic book,
 The example code shows three documents in the ./Comics folder, two comics and a "Storybook Step By Step" user guide. They were all created by the Storybook app from user uploaded content, and you can see how the content is organized. There is also a folder named ExampleComicsContentSources which contains the local content that was selected and uploaded to create each document.
 
 Ideas and suggestions are always welcome.
+
+Added updates to files in the Storybook folder relative to feature additions to the builder. The changes add the backend to select fonts for headings versus body text, and the ability to add semantic tags, eg h1 or h3, to the caption text. This comic demos these feature changes, a scifi Bible story. https://syntheticreality.net/Comic/DisappearingAct.html
+
