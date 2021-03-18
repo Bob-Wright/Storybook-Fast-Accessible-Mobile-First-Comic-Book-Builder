@@ -20,6 +20,9 @@ $showFigCntr = false;
 $Comicname = $_SESSION['Comicname'];
 $siteurl = $_SESSION['siteurl'];
 $Comics = '/home/bitnami/Comics/htdocs/';
+if(is_file($Comics.$Comicname.'/'.$Comicname.'FONTS.php')) {
+	include($Comics.$Comicname.'/'.$Comicname.'FONTS.php');
+}
 // set up to buffer output
 ob_start();
 // begin generated web page content
@@ -84,31 +87,6 @@ $head4 = <<< EOT4
 * {
  box-sizing: border-box;
 }
-EOT4;
-echo $head4;
-if(isset($_SESSION['pfont']) && isset($_SESSION['pfontfile'])) {
-	$pfont = $_SESSION['pfont'];
-	$pfontfile = $_SESSION['pfontfile'];
-	echo $pfontfile;
-} else {
-	echo
-		'@font-face {'.
-		'font-family: "Merriweather";'.
-		'src: url("./Fonts/Merriweather-Regular.ttf") format("truetype"); }';
-		$pfont = 'Merriweather';
-}
-if(isset($_SESSION['hfont']) && isset($_SESSION['hfontfile'])) {
-	$hfont = $_SESSION['hfont'];
-	$hfontfile = $_SESSION['hfontfile'];
-	echo $hfontfile;
-} else {
-	echo
-		'@font-face {'.
-		'font-family: "Roboto";'.
-		'src: url("./Fonts/Roboto-Regular.ttf") format("truetype"); }';
-		$hfont = 'Roboto';
-}
-$head4a = <<< EOT4a
 @font-face {
 	font-family: "Comic Neue";
 	src: url("./Fonts/ComicNeue-Regular.ttf") format("truetype");
@@ -116,33 +94,32 @@ $head4a = <<< EOT4a
 body {
  font-family: "Comic Neue";
 }
-.card-body {
-EOT4a;
-echo $head4a;
-echo
- 'font-family: '.$pfont.';
- font-size: 1.5vw;
- }
-.card-body h1 {
- font-family: '.$hfont.';
- text-align: left;
- font-size: 2vw;
- }
-.card-body h2 {
- font-family: '.$hfont.';
- text-align: left;
- font-size: 1.75vw;
- }
-.card-body h3 {
- font-family: '.$hfont.';
- text-align: left;
- font-size: 1.5vw;
- }
-.card-body p {
- font-family: '.$pfont.';';
-$head4b = <<< EOT4b
- font-size: 1.5vw;
- }
+EOT4;
+echo $head4;
+if(isset($_SESSION['pfontinfo'])) {
+	$pfontinfo = $_SESSION['pfontinfo'];
+	echo $pfontinfo;
+} else {
+	echo
+		'@font-face {'.
+		'font-family: "Merriweather";'.
+		'src: url("./Fonts/Merriweather-Regular.ttf") format("truetype"); }'.
+		'.card-body {font-family: Merriweather; font-size: 1.5vw; }'.
+		'.card-body p {font-family: Merriweather; font-size: 1.5vw; }';
+}
+if(isset($_SESSION['hfontinfo'])) {
+	$hfontinfo = $_SESSION['hfontinfo'];
+	echo $hfontinfo;
+} else {
+	echo
+		'@font-face {'.
+		'font-family: "Roboto";'.
+		'src: url("./Fonts/Roboto-Regular.ttf") format("truetype"); }'.
+		'.card-body h1 { font-family: Roboto; text-align: left; font-size: 2vw; }'.
+		'.card-body h2 { font-family: Roboto; text-align: left; font-size: 1.75vw; }'.
+		'.card-body h3 { font-family: Roboto; text-align: left; font-size: 1.5vw; }';
+}
+$head4a = <<< EOT4a
 .clickMeOverlay {
  display: block;
  z-index: 30;
@@ -157,9 +134,9 @@ $head4b = <<< EOT4b
 /*@media (min-width: 1200px) {
 font-size: 1.4vw;
 }*/
-}
-EOT4b;
-echo $head4b;
+
+EOT4a;
+echo $head4a;
 if(isset($_SESSION['bkgndImage'])) {
 	$bkgndImage = $_SESSION['bkgndImage'];
 $headC1 = <<< EOTC1
@@ -174,9 +151,9 @@ $headC1 = <<< EOTC1
 	z-index: -1;
 	opacity: 0.4;
 EOTC1;
-	echo $headC1;
-	echo
-	'background-image: url("./'.$Comicname.'/'.$bkgndImage.'");';
+echo $headC1;
+echo
+'background-image: url("./'.$Comicname.'/'.$bkgndImage.'");';
 $headC2 = <<< EOTC2
 background-position: top center;
 	background-repeat: no-repeat;
@@ -187,7 +164,7 @@ background-position: top center;
 	background-size: 100% 100%;
 	}
 EOTC2;
-	echo $headC2;
+echo $headC2;
 }
 $head5 = <<< EOT5
 </style>
@@ -203,7 +180,7 @@ echo
 	'<h1 class="sr-only">'.$_SESSION['cardTitle'].'</h1>';
 $head6 = <<<EOT6
 <!--#include file="./includes/browserupgrade.ssi" -->
-<main class="imgblock row flex-row row-no-gutters justify-content-center" id="container">
+<main  id="container" class="imgblock row flex-row row-no-gutters justify-content-center">
 
 <!-- ++++++++++++++++++++ -->
 <!--  build comic pages -->
@@ -369,8 +346,13 @@ if($altimg == '') { //no alt image to display
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
 		} else {
 			echo
-				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>'.
-				'<div class="card col-sm-11 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">'.
+				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>';
+				if(isset($_SESSION['cbinfo'])) {
+					$cbinfo = $_SESSION['cbinfo'];
+					echo '<div class="'.$cbinfo.'">';
+				} else {
+					echo '<div class="card col-sm-11 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">';}
+			echo
 				'<div class="card-body">'.$caption.'</div>'.
 				'</div>'.
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
@@ -384,7 +366,7 @@ if($altimg == '') { //no alt image to display
 			echo
 			'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>'.
 			'<div class="card col-sm-1 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">'.
-			'<div class="card-body"><h2 class="card-text font-weight-bolder text-dark">'.$FigCntr.'</h2></div>'.
+			'<div class="card-body"><h2>'.$FigCntr.'</h2></div>'.
 			'</div>'.
 			'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
 	}
@@ -436,8 +418,13 @@ AB1;
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
 		} else {
 			echo
-				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>'.
-				'<div class="card col-sm-11 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">'.
+				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>';
+				if(isset($_SESSION['cbinfo'])) {
+					$cbinfo = $_SESSION['cbinfo'];
+					echo '<div class="'.$cbinfo.'">';
+				} else {
+					echo '<div class="card col-sm-11 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">';}
+			echo
 				'<div class="card-body">'.$caption.'</div>'.
 				'</div>'.
 				'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
@@ -451,7 +438,7 @@ AB1;
 			echo
 			'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br></div>'.
 			'<div class="card col-sm-1 d-flex shadow-md #b0bec5 blue-grey lighten-3 px-sm-0">'.
-			'<div class="card-body"><h2 class="card-text font-weight-bolder text-dark">'.$FigCntr.'</h2></div>'.
+			'<div class="card-body"><h2>'.$FigCntr.'</h2></div>'.
 			'</div>'.
 			'<div class="card col-sm-12 px-sm-0" style="opacity: 0;"><br><br></div>';
 	}

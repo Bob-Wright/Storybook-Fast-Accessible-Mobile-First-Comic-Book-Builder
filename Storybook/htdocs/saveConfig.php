@@ -1,7 +1,7 @@
 <?php
 /*
  * filename: saveConfig.php
- * this code gets the Comic config file name
+ * this code saves the Comic config file
 */
 
 // disable error reporting for production code
@@ -73,6 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	// build the configuration data file content
 	$configContent = '';
 	$configContent .= '<?php ';
+	$configContent .= 'session_name("Storybook");';
 	$configContent .= 'require_once("/home/bitnami/session2DB/Zebra.php");';
 
 	if(isset($_SESSION["siteurl"])){
