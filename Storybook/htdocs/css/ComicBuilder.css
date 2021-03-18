@@ -1,20 +1,24 @@
 /* Comic Builder Forms Pages style sheet */
 
 @font-face {
-	font-family: "Roboto Slab";
+	font-family: "RobotoSlab-Regular";
 	src: url("../Fonts/RobotoSlab-Regular.ttf") format("truetype");
   }
 @font-face {
-	font-family: "Roboto Slab Bold";
+	font-family: "RobotoSlab-Bold";
 	src: url("../Fonts/RobotoSlab-Bold.ttf") format("truetype");
   }
 @font-face {
-	font-family: "Roboto";
+	font-family: "Roboto-Regular";
 	src: url("../Fonts/Roboto-Regular.ttf") format("truetype");
   }
 @font-face {
-	font-family: "Roboto Medium";
+	font-family: "Roboto-Medium";
 	src: url("../Fonts/Roboto-Medium.ttf") format("truetype");
+  }
+@font-face {
+	font-family: "Merriweather-Black";
+	src: url("../Fonts/Merriweather-Black.ttf") format("truetype");
   }
 
 @media screen and (max-width: 720px) {
@@ -57,7 +61,7 @@ height: 3.5vw;
 
 body {
 overflow-x: hidden;
-font-family: 'Roboto Slab Bold', serif; 
+font-family: RobotoSlab-Bold, serif; 
 	font-size: 1.6vw;
 }
 main {
@@ -67,44 +71,44 @@ a{
 	color: blue;
 }
 form {
-	font-family: 'Roboto Medium', sans-serif; 
+	font-family: Roboto-Medium, sans-serif; 
 	padding: .5vw 1vw;
 	font-size: 1.8vw;
 }
 form label{
-	font-family: 'Roboto Slab', serif; 
+	font-family: RobotoSlab-Regular, serif; 
 	padding: .1vw .1vw;
 	margin: 0;
 	font-size: 1.8vw;
 	color: purple;
 }
 section {
-	font-family: 'Roboto Medium', sans-serif; 
+	font-family: Roboto-Medium, sans-serif; 
 	padding: .5vw 1vw;
 	font-size: 1.8vw;
 	margin-bottom: 1vw;
 }
 h1{
-	font-family: 'Roboto Slab Bold', serif; 
+	font-family: RobotoSlab-Bold, serif; 
 	font-size: 5.6vw;
 }
 h2{
-	font-family: 'Roboto Slab Bold', serif; 
+	font-family: RobotoSlab-Bold, serif; 
 	font-size: 2.8vw;
 	margin: .5vw 1vw;
 }
 h3 {
-	font-family: 'Roboto Medium', sans-serif;
+	font-family: Roboto-Medium, sans-serif;
 	font-size: 2.4vw;
 	margin: .5vw 1vw;
 }
 h4 {
-	font-family: 'Roboto Medium', sans-serif;
+	font-family: Roboto-Medium, sans-serif;
 	font-size: 2.4vw;
 	margin: .5vw 1vw;
 }
 #ComicFooter {
-	font-family: 'Roboto Medium', serif;
+	font-family: Roboto-Medium, serif;
 	font-size: 2vw;
 	margin-left: 0;
 	margin-bottom: 0;
@@ -112,7 +116,7 @@ h4 {
 }
 
 p .configContent{
-	font-family: 'Roboto Slab Bold', serif;
+	font-family: RobotoSlab Bold, serif;
 	font-size: 1.6vw;
 	margin: .5vw 1vw;
 }
@@ -120,30 +124,34 @@ p .configContent{
  font-size: 1.2vw;
 }
 article .galleryButton {
-	font-family: 'Roboto Medium', sans-serif;
+	font-family: Roboto-Medium, sans-serif;
  font-size: 1.3vw;
 }
 article h1{
-	font-family: 'Roboto Slab Bold', serif; 
+	font-family: RobotoSlab-Bold, serif; 
 	font-size: 2.0vw;
 	margin: .5vw 1vw;
 }
 article h2{
-	font-family: 'Roboto Medium', serif; 
+	font-family: Roboto-Medium, serif; 
 	font-size: 1.8vw;
 	margin: .5vw 1vw;
 }
 article h3 {
-	font-family: 'Roboto Medium', sans-serif; 
+	font-family: Roboto-Medium, sans-serif; 
 	font-size: 1.4vw;
 	margin: .5vw 1vw
 }
 article p{
-	font-family: 'Roboto', serif;
+	font-family: Roboto-Regular, serif;
 	font-size: .8vw;
 	margin: .5vw 1vw;
 }
-span{
+span #Comicname{
+	color:red;
+	cursor:pointer;
+}
+span #timeleft{
 	color:red;
 	cursor:pointer;
 }
@@ -202,7 +210,7 @@ textarea {
 	margin-top: 0;
 	max-width: 75vw;
 	min-width: 70vw;
-	font-family: Merriweather Black;
+	font-family: Merriweather-Black;
 	color: #000080;
 	font-size: 12vw;
 }
@@ -217,16 +225,16 @@ textarea {
 	vertical-align: 50%;
 	max-width: 75vw;
 	min-width: 70vw;
-	font-family: Merriweather Black;
+	font-family: Merriweather-Black;
 	color: #000080;
 	font-size: 3.2vw;
 }
 #prevpagebutton {
-	font-family: 'Roboto Slab', serif; 
+	font-family: RobotoSlab-Regular, serif; 
 	font-size: 2.4vw;
 }
 #nextpagebutton {
-	font-family: 'Roboto Slab', serif; 
+	font-family: RobotoSlab-Regular, serif; 
 	font-size: 2.4vw;
 }
 .checkbox {
@@ -264,7 +272,7 @@ hr {
 	width: 90vw;
 }
 #Upload{
-	font-family: 'Roboto', sans-serif; 
+	font-family: Roboto-Regular, sans-serif; 
 	padding: .1vw 1vw;
 	font-size: 2.4vw;
 }
@@ -276,7 +284,7 @@ hr {
 	padding: .2vw;
 }
 #downloadZip{
-	font-family: 'Roboto', sans-serif; 
+	font-family: Roboto-Regular, sans-serif; 
 	padding: .1vw 1vw;
 	font-size: 2.8vw;
 	border: .5vw;
@@ -327,7 +335,7 @@ form #Comicname{
 	margin-left: 2vw;
 	margin-right: 2vw;
 	background: #f0f0f0;
-	opacity: 0.85;
+	/*opacity: 0.85;*/
 	padding-left: 1vw;
 }
 .msgBox {
@@ -335,7 +343,7 @@ form #Comicname{
 	margin-left: 2vw;
 	margin-right: 2vw;
 	background: #f0f0f0;
-	opacity: 0.85;
+	/*opacity: 0.85;*/
 	padding-left: 1vw;
 }
 .infoBox {
@@ -343,11 +351,11 @@ form #Comicname{
 	margin-left: 2vw;
 	margin-right: 2vw;
 	background: #f0f0f0;
-	opacity: 0.85;
+	/*opacity: 0.85;*/
 	padding-left: 1vw;
 }
 .orngBox {
 	border: .4vw solid #ff8000;
 	/*background: #f0f0f0;*/
-	opacity: 0.85;
+	/*opacity: 0.85;*/
 }
