@@ -22,3 +22,4 @@ Ideas and suggestions are always welcome.
 
 Added updates to files in the Storybook folder relative to feature additions to the builder. The changes add the backend to select fonts for headings versus body text, and the ability to add semantic tags, eg h1 or h3, to the caption text. This comic demos these feature changes, a scifi Bible story. https://syntheticreality.net/Comic/DisappearingAct.html
 
+Added a "Font Chooser" that allows a user to select a Headings font and a Paprgraph font specification for the caption panels. The chooser also allows the selection of the caption panel background color.
