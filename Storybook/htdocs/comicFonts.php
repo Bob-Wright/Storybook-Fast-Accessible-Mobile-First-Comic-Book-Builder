@@ -8,7 +8,6 @@ include("/home/bitnami/session2DB/Zebra.php");
 //	session_start();
 // -----------------------
 	
-$_SESSION['pageimage'] = 'altText';
 $head1 = <<< EOT1
 <!DOCTYPE html>
 <html lang="en">
