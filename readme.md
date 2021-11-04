@@ -17,18 +17,31 @@ Storybook Comic Book Builder is an accessible Content Creator Application that i
      ~ are portable to run on various media (eg thumb drives)
 
 The logic and code that realizes the implementation of the first two requirements listed for the created documents, that they be a mobile-first responsive design and quick to load, is a specific part of the package that makes it novel so far as I have been able to determine. This next is an outline of the considerations and the approach to meeting the first two requirements:
+
 I. why mobile-first responsive design? sheer numbers of audience devices
+
 II. Intro and rationale
+
      A. responsive design versus adaptive design, definitions and distinctions
+     
      B. the HTML/CSS image "srcset" concept as a method of adaptive design. the benefits of different image formats.
+     
      C. a perceived rather serious flaw in the "srcset" method and its presentation of images. srcset selects images by width, if the image is taller than the display/viewport size it will be cropped
+     
      D. Javascript used to realize responsive design by scaling images first chosen through the browser srcset. the javascript scales the images to fit within the viewport while maintaining the image aspect ratio
+     
 III. Explain the realization by exposing relevant portions of the code
+
     A. synopsis of the srcset construct for image selection
+    
           i. the basic browser srcset implementation, how it works and why it doesn't
+          
           ii. how the builder creates the srcset for each comic book image
+          
     B. how we use Javascript to modify the image's HTML srcset and other attributes
+    
     C. how we then use the Javascript to scale the srcset selection to fit within the viewport while maintaining the aspect ratio.
+    
 IV. Explain how this method coincidentally and synergistically also substantially increases download speeds by minimizing content file sizes.
 
 Our example documents are primarily accessible web comic books. The Storybook app and the comics it creates both satisfy the WebAIM evaluation test for Web Content Accessibilty Guidelines (WCAG) which seems a fairly good starting point for such testing. This implies that they are largely accessible to challenged users.
