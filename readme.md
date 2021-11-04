@@ -1,13 +1,13 @@
 I like to code, especially code which presents things like web pages, and in particular I like to write code that in turn writes code. I like to do systems admin and configuration. I like to draw and write fiction as well, so it occurred to me that an application to share comic books or other sequential documents created from my (and other's) content would be useful, and certainly fun to write. That is the impetus for Storybook.
 
 Storybook Comic Book Builder is an accessible Content Creator Application that in turn creates accessible documents. We have set requirements for the Builder that the comics or documents that it makes
-~ use a mobile-first responsive design
-~ are very quick to load
-~ are accessible by WCAG guidelines
-~ have semantic content and logical syntax
-~ are easy to navigate using only the keyboard
-~ support GIF or WebP animations and MP3 audio content
-~ are portable to run on various media (eg thumb drives)
+     ~ use a mobile-first responsive design
+     ~ are very quick to load
+     ~ are accessible by WCAG guidelines
+     ~ have semantic content and logical syntax
+     ~ are easy to navigate using only the keyboard
+     ~ support GIF or WebP animations and MP3 audio content
+     ~ are portable to run on various media (eg thumb drives)
 
 The logic and code that realizes the implementation of the first two requirements listed for the created documents, that they be a mobile-first responsive design and quick to load, is a specific part of the package that makes it novel so far as I have been able to determine. This next is an outline of the considerations and the approach to meeting the first two requirements:
 I. why mobile-first responsive design? sheer numbers of audience devices
