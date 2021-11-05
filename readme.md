@@ -165,8 +165,7 @@ If Yield.php finds everything acceptable it will offer to create the comic book,
 		~ modernizr-webpdetect-min.js
 		~ uses bootstrap 5.1 and JQuery
 		
-Reader.js
-	~ not part of the builder but a component integral to the display of the rendered comic
+Reader.js is not part of the builder but it is a component integral to the display of the rendered comic.
 
 The example in the ./Comics folder, Hyenas, was created by the Storybook app from user uploaded content, and you can see how the content is organized. There is also a folder named ExampleComicsContentSources which contains the local content that was selected and uploaded to create the comic.
 
