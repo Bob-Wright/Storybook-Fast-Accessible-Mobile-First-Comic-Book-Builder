@@ -44,23 +44,23 @@ The logic and code that realizes the implementation of the first two requirement
     
 4. this method coincidentally and synergistically increases download speeds by substantially minimizing content file sizes.
 
-Our example documents are primarily accessible web comic books. The Storybook app and the comics it creates both satisfy the WebAIM evaluation test for Web Content Accessibilty Guidelines (WCAG) which seems a fairly good starting point for such testing. This implies that they are largely accessible to challenged users.
+Our example document is an accessible web comic book. The Storybook app and the comics it creates both satisfy the WebAIM evaluation test for Web Content Accessibilty Guidelines (WCAG) which seems a fairly good starting point for such testing. This implies that they are largely accessible to challenged users.
 
 One aspect of accessibility is Semantic Content, some hierarchy that assistive technologies can parse for the user. As it happens search engines as well as users can benefit from this technique, and so this should also favorably influence page SEO ranking.
 
 Another aspect of accessibility is the navigability of the site, and we want our documents to be navigable by keyboard without the use of a mouse.
 
-Storybook was initially set up as a Facebook app with a FB page at https://www.facebook.com/Storybook-Comic-Book-Builder-112113734045065 and as such it uses the FB Open Graph API to logon and authenticate users. For FB users the app facilitates "Liking" the Storybook page and it also facilitates "Sharing" the comic to FB. Since the Login Code is not necessary to the Builder function save to grant access, it has been removed from this repository it is included in a Logins repo. The home site for the domain is https://syntheticreality.net which runs a short CSS animation (which satisfies the WebAIM evaluation for accessibility) before it gives you the option to enter the Storybook Comic Book gallery. A direct link to the Comics Gallery page is provided by https://syntheticreality.net/Comics/Comics.php and the menu section of the gallery page has a link to the Builder application.
+Storybook was initially set up as a Facebook app with a FB page at https://www.facebook.com/Storybook-Comic-Book-Builder-112113734045065 and as such it uses the FB Open Graph API to logon and authenticate users. For FB users the app facilitates "Liking" the Storybook page and it also facilitates "Sharing" the comic to FB. Since the Login Code is not necessary to the Builder function save to grant access, it has been removed from this repository is instead included in a Logins repo. The home site landing page for the domain is https://syntheticreality.net which runs a short CSS animation (which satisfies the WebAIM evaluation for accessibility) before it gives you the option to enter the Storybook Comic Book gallery. A direct link to the Comics Gallery page is provided by https://syntheticreality.net/Comics/Comics.php and the menu section of the gallery page has a link to the Builder application.
 
 Besides creating and then hosting comics, Storybook offers users the opportunity to download a ZIP archive of their comic that can be viewed elsewhere. Storybook uses HTML5, CSS3, Javascript, mySQL, and PHP to build and host comics on the app site, however the comics or documents that it creates only use HTML, CSS, and Javascript so the downloaded comic is very portable. Copies of the comic could easily be handed out on USB thumb drives for example. The comics use responsive design to support various device screen sizes, and the app and comics also leverage the Bootstrap framework and jQuery for attractive dynamic content presentation.
 
-The image ScreenShot376.JPG presents the overall folder and file structure of the Storybook app. You can see that the referenced folders are physically at the same level as the htdocs webroot folder. Some are referenced through an alias so that they appear as subfolders under the htdocs folder to the app's HTML, and they may also be referenced by their physical or Linux file structures. Some are referenced by the PHP scripts only as filesystem locations or folders. In particular the folders named includes, uploads, session2DB are filesystem folders while the folders Storybook, Comics, ComicsUser and Facebook are all usable as subfolders beneath the /htdocs root.
+The image ScreenShot376.JPG presents the overall folder and file structure of the Storybook app. You can see that the referenced folders are physically at the same level as the htdocs webroot folder. Some are referenced through an alias so that they appear as subfolders under the htdocs folder to the app's HTML, and they may also be referenced by their physical or Linux file structures. Some are referenced by the PHP scripts only as filesystem locations or folders. In particular the folders named includes, uploads, session2DB are filesystem folders while the folders Storybook, Comics, ComicsUser and Facebook are all usable as HTML subfolders beneath the /htdocs root.
 
-Storybook presents as a gallery of comic books shown by the script Comics.php within the ./Comics/htdocs folder, and the builder is launched from the gallery page menu. The launch invokes a PHP Login script within a folder aliased as a subfolder under htdocs, ./Storybook/htdocs. If the script processes a successful logon it saves the new user into a database managed by the ComicsUser.class.php script within the ./ComicsUser folder and it offers to continue the builder, which it will do by launching the script for the Builder landing page within the same folder named index.php. The index.php script presents a dialog of forms requesting various data about the comic being created, for example the comic title and its author among other information. Each form is processed by its own PHP handler script, and all of these handlers are also in the same ./Storybook/htdocs/ folder. Two of the handlers invoked by index.php are each used to select and upload an image, and to do that they each further invoke an imgUploader.php script to process those uploads whereupon they return to index.php. Following completion of the index.php script's data requests, the application sets up a target folder for the comic and a php configuration file that will be used by the Builder, and then a sequence of scripts will let the user select and upload the comic content per se. The hierarchy of these scripts is shown here in this tree diagram
+Storybook presents as a gallery of comic books shown by the script Comics.php within the ./Comics/htdocs folder, and the builder is launched from the gallery page menu. The launch invokes a PHP Login script within a folder aliased as a subfolder under the htdocs documents root, ./Storybook/htdocs. If the script processes a successful logon it saves the new user into a database managed by the ComicsUser.class.php script within the ./ComicsUser folder and it offers to continue the Builder, which it will do by launching the script for the Builder landing page within the same folder named index.php. The index.php script presents a dialog of forms requesting various data about the comic being created, for example the comic title and its author among other information. Each form is processed by its own PHP handler script, and all of these handlers are also in the same ./Storybook/htdocs/ folder. Two of the handlers invoked by index.php are each used to select and upload an image, and to do that they each further invoke an imgUploader.php script to process those uploads whereupon they return to index.php. Following completion of the index.php script's data requests, the application sets up a target folder for the comic and a php configuration file that will be used by the Builder, and then a sequence of scripts will let the user select and upload the comic content per se. The hierarchy of these scripts is shown here in this tree diagram
 
 ============
 index.php
-	~ this is the landing page for the builder app kernel, requests descriptive or non-content info for the comic with a form and input validation program for each requested item of info
+This is the landing page for the builder app kernel, it requests descriptive or non-content info for the comic with a form and input validation program for each requested item of information. Most of the data gathered by index.php centers on content used to populate the card that represents each comic in the gallery. Once this data has begun to be gathered, index.php will offer the user an option to continue the builder. Each requested value or piece of data may be required or optional, and each item should be considered with some care. When the user is finally satisfied with their inputs they should save their configuration as offered by the script before continuing the builder.
 	~ the data gathered by index.php is used primarily to populate a "card" for each hosted comic that is shown in a comics gallery
 
 	- cardTitle.php
@@ -70,6 +70,10 @@ index.php
 	- cardText.php
 	- getCardImage.php
 		- calls imgUploader.php
+	- getBkgnd.php
+	  gets comic panel background image
+		- calls imgUploader.php
+		- ComicImages.class.php
 	- cardAlt.php
 	- Category.php
 	- authorName.php
@@ -88,16 +92,11 @@ index.php
 	- getConfigValues.php
 
 ==========
-the "get" programs below request and upload content
+The next steps in the builder gather content to populate the actual comic itself. The user selects and then uploads this content, for example the page images, through following a sequence of dialog pages. Each dialog will invoke the imgUploader.php or the txtUploader.php script as required. Some of the inputs are nominally required, others are opional. Some of the information, image filenames for example, is gathered into a database managed by the ComicImages.class.php script within the ./includes folder. This data will be used in constructing the comic. After all of the sequential dialog pages have been processed or skipped the builder will finally launch the Yield.php script from within the ./Storybook/htdocs folder. The "get" programs below request and upload content.
 	they call
 	- jquery.dataTables.js
 	- DT_bootstrap.js
 	- vpb_uploader.js
------------
-getBkgnd.php
-	gets comic panel background image
-	- calls imgUploader.php
-		- ComicImages.class.php
 -----------
 getComic.php
 	gets comic panel images
@@ -140,6 +139,8 @@ getOGImg.php
 
 ===========
 Yield.php
+If Yield.php finds everything acceptable it will offer to create the comic book, and if the option is chosen Yield will launch the makeComic.php script that will parse the database and uploaded contents to create the actual comic book html and it will also invoke some other scripts to make and download a ZIP archive of the comic. An entry for the comic is made in the database managed by the ComicsUser.class.php script within the ./ComicsUser/htdocs folder and a card for the new comic is added to the gallery. For FB users an opportunity is presented to easily "Share" the comic to FB. Once the comic has been created Yield.php will launch the comic after a timeout.
+
 	~ manages the builder actions on the comic data using these functions
 	- ZipListOfFilesOrFolders.php
 	- rrmdir.php
@@ -163,13 +164,7 @@ Reader.js
 	~ not part of the builder but a component integral to the display of the rendered comic
 
 
-Most of the data gathered by index.php centers on content used to populate the card that represents each comic in the gallery. Once this data has begun to be gathered, index.php will offer the user an option to continue the builder. Each requested value or piece of data may be required or optional, and each item should be considered with some care. When the user is finally satisfied with their inputs they should save their configuration as offered by the script before continuing the builder.
-
-The next steps in the builder gather content to populate the actual comic itself. The user selects and then uploads this content, for example the page images, through following a sequence of dialog pages. Each dialog will invoke the imgUploader.php or the txtUploader.php script as required. Some of the inputs are nominally required, others are opional. Some of the information, image filenames for example, is gathered into a database managed by the ComicImages.class.php script within the ./includes folder. This data will be used in constructing the comic. After all of the sequential dialog pages have been processed or skipped the builder will finally launch the Yield.php script from within the ./Storybook/htdocs folder.
-
-If Yield.php finds everything acceptable it will offer to create the comic book, and if the option is chosen Yield will launch the makeComic.php script that will parse the database and uploaded contents to create the actual comic book html and it will also invoke some other scripts to make and download a ZIP archive of the comic. An entry for the comic is made in the database managed by the ComicsUser.class.php script within the ./ComicsUser/htdocs folder. An opportunity is presented to easily "Share" the comic to FB and a card for the new comic is added to the gallery. Once the comic has been created Yield.php will launch the comic after a timeout.
-
-The example code shows three documents in the ./Comics folder, two comics and a "Storybook Step By Step" user guide. They were all created by the Storybook app from user uploaded content, and you can see how the content is organized. There is also a folder named ExampleComicsContentSources which contains the local content that was selected and uploaded to create each document.
+The example in the ./Comics folder, Hyenas, was created by the Storybook app from user uploaded content, and you can see how the content is organized. There is also a folder named ExampleComicsContentSources which contains the local content that was selected and uploaded to create the comic.
 
 Ideas and suggestions are always welcome.
 
