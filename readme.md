@@ -60,99 +60,98 @@ Storybook presents as a gallery of comic books shown by the script Comics.php wi
 
 index.php is the landing page for the Builder app kernel, it requests descriptive or non-content info for the comic with a form and input validation program for each requested item of information. Most of the data gathered by index.php centers on content used to populate the card that represents each comic in the gallery. Once this data has begun to be gathered, index.php will offer the user an option to continue the builder. Each requested value or piece of data may be required or optional, and each item should be considered with some care. When the user is finally satisfied with their inputs they should save their configuration as offered by the script before continuing the builder.
 
-	- cardTitle.php
-	- siteURL.php (unused input -  value set by index.php reflects the host name)
-	- Comicname.php (unused input -  value set by index.php from the card title)
-	- cardSubtitle.php
-	- cardText.php
-	- getCardImage.php
-		- calls imgUploader.php
-	- getBkgnd.php
+	~ cardTitle.php
+	~ siteURL.php (unused input ~  value set by index.php reflects the host name)
+	~ Comicname.php (unused input ~  value set by index.php from the card title)
+	~ cardSubtitle.php
+	~ cardText.php
+	~ getCardImage.php
+		~ calls imgUploader.php
+	~ getBkgnd.php
 	  gets comic panel background image
-		- calls imgUploader.php
-		- ComicImages.class.php
-	- cardAlt.php
-	- Category.php
-	- authorName.php
-	- scriptName.php
-	- pencilsName.php
-	- inksName.php
-	- colorsName.php
-	- lettersName.php
-	- Publisher.php
-	- Audience.php
-	- artistName.php
-	- cardEmail.php
+		~ calls imgUploader.php
+		~ ComicImages.class.php
+	~ cardAlt.php
+	~ Category.php
+	~ authorName.php
+	~ scriptName.php
+	~ pencilsName.php
+	~ inksName.php
+	~ colorsName.php
+	~ lettersName.php
+	~ Publisher.php
+	~ Audience.php
+	~ artistName.php
+	~ cardEmail.php
 
 	uses these function programs
-	- saveConfig.php
-	- getConfigValues.php
+	~ saveConfig.php
+	~ getConfigValues.php
 
 The next steps in the builder gather content to populate the actual comic itself. The user selects and then uploads this content, for example the page images, through following a sequence of dialog pages. Each dialog will invoke the imgUploader.php or the txtUploader.php script as required. Some of the inputs are nominally required, others are opional. Some of the information, image filenames for example, is gathered into a database managed by the ComicImages.class.php script within the ./includes folder. This data will be used in constructing the comic. After all of the sequential dialog pages have been processed or skipped the builder will finally launch the Yield.php script from within the ./Storybook/htdocs folder. The "get" programs below request and upload content.
 	they call
-	- jquery.dataTables.js
-	- DT_bootstrap.js
-	- vpb_uploader.js
------------
+	~ jquery.dataTables.js
+	~ DT_bootstrap.js
+	~ vpb_uploader.js
+
 getComic.php
 	gets comic panel images
-	- calls imgUploader.php
-		- ComicImages.class.php
+	~ calls imgUploader.php
+		~ ComicImages.class.php
 getAltText.php
 	gets comic panel images ALT text
-	- calls txtUploader.php
+	~ calls txtUploader.php
 getComicCaptions.php
 	gets comic panel image caption text
-	- calls txtUploader.php
----------
+	~ calls txtUploader.php
+
 getAltImg.php
 	gets comic panel alternate images
-	- calls imgUploader.php
-		- ComicImages.class.php
+	~ calls imgUploader.php
+		~ ComicImages.class.php
 getAltImgText.php
 	gets comic panel alternate images ALT text
-	- calls txtUploader.php
+	~ calls txtUploader.php
 getAltImgCaptions.php
 	gets comic panel alternate image caption text
-	- calls txtUploader.php
+	~ calls txtUploader.php
 getAltImgMP3.php
 	gets comic panel alternate image audio file
-	- calls mp3Uploader.php
-		- getID3.php
+	~ calls mp3Uploader.php
+		~ getID3.php
 getMP3transcript.php
 	gets comic panel alternate image audio file transcript
-	- calls txtUploader.php
----------
-comicFonts.php
-	gets fonts and colors for captions and alt image captions
-	- calls FontSaver.php
-	- uses mdb bootstrap and jquery
-----------
+	~ calls txtUploader.php
+
+comicFonts.php is a "Font Chooser" that allows a user to select a Headings font and a Paragraph font specification for the captions and alt image captions panels. The chooser also allows the selection of the caption panel background color and the ability to add semantic tags, eg h1 or h3, to the caption text.
+	~ calls FontSaver.php
+	~ uses mdb bootstrap and jquery
+
 getOGImg.php
 	gets comic OG image for sharing
-	- calls imgUploader.php
-		- ComicImages.class.php
+	~ calls imgUploader.php
+		~ ComicImages.class.php
 
 Yield.php
 If Yield.php finds everything acceptable it will offer to create the comic book, and if the option is chosen Yield will launch the makeComic.php script that will parse the database and uploaded contents to create the actual comic book html and it will also invoke some other scripts to make and download a ZIP archive of the comic. An entry for the comic is made in the database managed by the ComicsUser.class.php script within the ./ComicsUser/htdocs folder and a card for the new comic is added to the gallery. For FB users an opportunity is presented to easily "Share" the comic to FB. Once the comic has been created Yield.php will launch the comic after a timeout.
 
 	~ manages the builder actions on the comic data using these functions
-	- ZipListOfFilesOrFolders.php
-	- rrmdir.php
-	- Comic.class.php
-	- ComicsUser.class.php
-	- ComicImages.class.php
-	- closeComicBuilder.php
-	- getConfigValues.php
-	- downloadZip.php
-	- dbConnect.php (in config folder, used with email_id auth)
-	- Share.php (used with oauth_id auth for FB shares)
+	~ ZipListOfFilesOrFolders.php
+	~ rrmdir.php
+	~ Comic.class.php
+	~ ComicsUser.class.php
+	~ ComicImages.class.php
+	~ closeComicBuilder.php
+	~ getConfigValues.php
+	~ downloadZip.php
+	~ dbConnect.php (in config folder, used with email_id auth)
+	~ Share.php (used with oauth_id auth for FB shares)
 
-	- calls makeComic.php
+	~ calls makeComic.php
 		generates the HTML for the comic
-		- ComicImages.class.php
-		- modernizr-webpdetect-min.js
-		- uses bootstrap 5.1 and JQuery
+		~ ComicImages.class.php
+		~ modernizr-webpdetect-min.js
+		~ uses bootstrap 5.1 and JQuery
 		
 Reader.js
 	~ not part of the builder but a component integral to the display of the rendered comic
@@ -160,7 +159,3 @@ Reader.js
 The example in the ./Comics folder, Hyenas, was created by the Storybook app from user uploaded content, and you can see how the content is organized. There is also a folder named ExampleComicsContentSources which contains the local content that was selected and uploaded to create the comic.
 
 Ideas and suggestions are always welcome.
-
-Added updates to files in the Storybook folder relative to feature additions to the builder. The changes add the backend to select fonts for headings versus body text, and the ability to add semantic tags, eg h1 or h3, to the caption text. This comic demos these feature changes, a scifi Bible story. https://syntheticreality.net/Comic/DisappearingAct.html
-
-Added a "Font Chooser" that allows a user to select a Headings font and a Paprgraph font specification for the caption panels. The chooser also allows the selection of the caption panel background color.
