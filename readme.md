@@ -89,50 +89,62 @@ index.php is the landing page for the Builder app kernel, it requests descriptiv
 	~ getConfigValues.php
 
 The next steps in the builder gather content to populate the actual comic itself. The user selects and then uploads this content, for example the page images, through following a sequence of dialog pages. Each dialog will invoke the imgUploader.php or the txtUploader.php script as required. Some of the inputs are nominally required, others are opional. Some of the information, image filenames for example, is gathered into a database managed by the ComicImages.class.php script within the ./includes folder. This data will be used in constructing the comic. After all of the sequential dialog pages have been processed or skipped the builder will finally launch the Yield.php script from within the ./Storybook/htdocs folder. The "get" programs below request and upload content.
+
 	they call
 	~ jquery.dataTables.js
 	~ DT_bootstrap.js
 	~ vpb_uploader.js
 
 getComic.php
+
 	gets comic panel images
 	~ calls imgUploader.php
 		~ ComicImages.class.php
 getAltText.php
+
 	gets comic panel images ALT text
 	~ calls txtUploader.php
 getComicCaptions.php
+
 	gets comic panel image caption text
 	~ calls txtUploader.php
 
 getAltImg.php
+
 	gets comic panel alternate images
 	~ calls imgUploader.php
 		~ ComicImages.class.php
 getAltImgText.php
+
 	gets comic panel alternate images ALT text
 	~ calls txtUploader.php
 getAltImgCaptions.php
+
 	gets comic panel alternate image caption text
 	~ calls txtUploader.php
 getAltImgMP3.php
+
 	gets comic panel alternate image audio file
 	~ calls mp3Uploader.php
 		~ getID3.php
 getMP3transcript.php
+
 	gets comic panel alternate image audio file transcript
 	~ calls txtUploader.php
 
 comicFonts.php is a "Font Chooser" that allows a user to select a Headings font and a Paragraph font specification for the captions and alt image captions panels. The chooser also allows the selection of the caption panel background color and the ability to add semantic tags, eg h1 or h3, to the caption text.
+
 	~ calls FontSaver.php
 	~ uses mdb bootstrap and jquery
 
 getOGImg.php
+
 	gets comic OG image for sharing
 	~ calls imgUploader.php
 		~ ComicImages.class.php
 
 Yield.php
+
 If Yield.php finds everything acceptable it will offer to create the comic book, and if the option is chosen Yield will launch the makeComic.php script that will parse the database and uploaded contents to create the actual comic book html and it will also invoke some other scripts to make and download a ZIP archive of the comic. An entry for the comic is made in the database managed by the ComicsUser.class.php script within the ./ComicsUser/htdocs folder and a card for the new comic is added to the gallery. For FB users an opportunity is presented to easily "Share" the comic to FB. Once the comic has been created Yield.php will launch the comic after a timeout.
 
 	~ manages the builder actions on the comic data using these functions
