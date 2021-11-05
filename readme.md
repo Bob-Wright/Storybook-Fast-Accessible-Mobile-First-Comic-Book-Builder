@@ -1,6 +1,6 @@
-I like to code, especially code which presents things like web pages, and in particular I like to write code that in turn writes code. I like to do systems admin and configuration. I like to draw and write fiction as well, so it occurred to me that an application to share comic books or other sequential documents created from my (and other's) content would be useful, and certainly fun to write. That is the impetus for Storybook.
+I like to write code, especially code which presents things like web pages, and in particular I like to write code that writes web page code. I like to do systems admin and configuration. I like to draw and write fiction as well, so it occurred to me that an application to share comic books or other sequential documents created from my (and other's) content would be useful, and certainly fun to write. That is the impetus for Storybook.
 
-Storybook Comic Book Builder is an accessible Content Creator Application that in turn creates accessible documents. We have set requirements for the Builder that the comics or documents that it makes
+Storybook Comic Book Builder is an accessible Content Creator Application that in turn creates accessible documents. We have set requirements for the Builder, that the comics or documents it makes
 
      ~ use a mobile-first responsive design
      
@@ -18,9 +18,9 @@ Storybook Comic Book Builder is an accessible Content Creator Application that i
 
 The logic and code that realizes the implementation of the first two requirements listed for the created documents, that they be a mobile-first responsive design and quick to load, is a specific part of the package that makes it novel so far as I have been able to determine. This next is an outline of the considerations and the approach to meeting the first two requirements:
 
-I. why mobile-first responsive design? sheer numbers of audience devices
+1. why mobile-first responsive design? sheer numbers of audience devices
 
-II. Intro and rationale
+2. Intro and rationale
 
      A. responsive design versus adaptive design, definitions and distinctions
      
@@ -30,7 +30,7 @@ II. Intro and rationale
      
      D. Javascript used to realize responsive design by scaling images first chosen through the browser srcset. the javascript scales the images to fit within the viewport while maintaining the image aspect ratio
      
-III. Explain the realization by exposing relevant portions of the code
+3. Explain the realization by exposing relevant portions of the code
 
     A. synopsis of the srcset construct for image selection
     
@@ -42,7 +42,7 @@ III. Explain the realization by exposing relevant portions of the code
     
     C. how we then use the Javascript to scale the srcset selection to fit within the viewport while maintaining the aspect ratio.
     
-IV. Explain how this method coincidentally and synergistically also substantially increases download speeds by minimizing content file sizes.
+4. Explain how this method coincidentally and synergistically also substantially increases download speeds by minimizing content file sizes.
 
 Our example documents are primarily accessible web comic books. The Storybook app and the comics it creates both satisfy the WebAIM evaluation test for Web Content Accessibilty Guidelines (WCAG) which seems a fairly good starting point for such testing. This implies that they are largely accessible to challenged users.
 
