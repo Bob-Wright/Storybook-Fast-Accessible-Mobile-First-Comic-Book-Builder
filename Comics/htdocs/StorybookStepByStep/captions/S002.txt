@@ -1,1 +1,0 @@
-This screen shows that the Storybook gallery itself successfully passes the WebAIM test for Web Content Accessibility Guidelines (WCAG) accessibilty standards. Note that the older comics in the gallery were used in modeling development and may not themselves all be compliant.<br>The WebAIM evaluation is a good starting point to judge accessibility.

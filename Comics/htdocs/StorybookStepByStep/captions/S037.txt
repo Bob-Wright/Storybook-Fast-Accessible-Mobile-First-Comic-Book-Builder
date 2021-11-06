@@ -1,1 +1,0 @@
-At this time Storybook allows only one comic book per user, so if you already have a comic hosted and logon to the Builder you will be presented with this dialog.

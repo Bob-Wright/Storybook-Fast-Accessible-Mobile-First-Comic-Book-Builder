@@ -1,1 +1,0 @@
-This is the main landing screen for the builder function proper. As it states, users are requested to provide information about the Comic they wish to create.
