@@ -1,0 +1,176 @@
+/* Stylesheet for Comic Book Builder text color palette */
+/* only the colors that are not already part of MDB are styled here */
+.danger-color-lite-text {
+    color: #ef9a9a !important
+}
+
+.danger-color-text {
+    color: #ff4444 !important
+}
+
+.danger-color-dark-text {
+    color: #CC0000 !important
+}
+
+.danger-color-darker-text {
+    color: #b00808 !important
+}
+
+.warning-color-lite-text {
+    color: #ffcc80 !important
+}
+
+.warning-color-text {
+    color: #ffbb33 !important
+}
+
+.warning-color-dark-text {
+    color: #FF8800 !important
+}
+
+.warning-color-darker-text {
+    color: #e65100 !important
+}
+
+.yellow-color-lite-text {
+    color: #fff59d !important
+}
+
+.yellow-color-text {
+    color: #ffff00 !important
+}
+
+.yellow-color-dark-text {
+    color: #ffd600 !important
+}
+
+.yellow-color-darker-text {
+    color: #e0a015 !important
+}
+
+.success-color-lite-text {
+    color: #a5d6a7 !important
+}
+
+.success-color-text {
+    color: #00C851 !important
+}
+
+.success-color-dark-text {
+    color: #007E33 !important
+}
+.success-color-darker-text {
+    color: #1b5e20 !important
+}
+
+.default-color-lite-text {
+    color: #80cbc4 !important
+}
+
+.default-color-text {
+    color: #2BBBAD !important
+}
+
+.default-color-dark-text {
+    color: #00695c !important
+}
+
+.default-color-darker-text {
+    color: #004044 !important
+}
+
+.info-color-lite-text {
+    color: #81d4fa !important
+}
+
+.info-color-text {
+    color: #33b5e5 !important
+}
+
+.info-color-dark-text {
+    color: #0099CC !important
+}
+
+.info-color-darker-text {
+    color: #01579b !important
+}
+
+.primary-color-lite-text {
+    color: #90caf9 !important
+}
+
+.primary-color-text {
+    color: #4285F4 !important
+}
+
+.primary-color-dark-text {
+    color: #0d47a1 !important
+}
+
+.primary-color-darker-text {
+    color: #0027a1 !important
+}
+
+.myindigo-color-lite-text {
+    color: #9fa8da !important
+}
+
+.myindigo-color-text {
+    color: #536dfe !important
+}
+
+.myindigo-color-dark-text {
+    color: #304ffe !important
+}
+
+.myindigo-color-darker-text {
+    color: #1a237e !important
+}
+
+.purple-color-lite-text {
+    color: #b39ddb !important
+}
+
+.purple-color-text {
+    color: #7c4dff !important
+}
+
+.purple-color-dark-text {
+    color: #6200ea !important
+}
+
+.purple-color-darker-text {
+    color: #311b92 !important
+}
+
+.secondary-color-lite-text {
+    color: #ce93d8 !important
+}
+
+.secondary-color-text {
+    color: #aa66cc !important
+}
+
+.secondary-color-dark-text {
+    color: #9933CC !important
+}
+
+.secondary-color-darker-text {
+    color: #4a148c !important
+}
+
+.white-background-text {
+    color: #ffffff !important
+}
+
+.GRAY25-text {
+    color: #c0c0c0 !important
+}
+
+.GRAY50-text {
+    color: #808080 !important
+}
+
+.black-background-text {
+    color: #000000 !important
+}

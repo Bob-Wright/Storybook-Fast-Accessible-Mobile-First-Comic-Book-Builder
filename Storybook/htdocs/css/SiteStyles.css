@@ -1,0 +1,1125 @@
+/* =============== */
+/* SiteStyles.css */
+/* this is the main style sheet for the entire web site */
+/* it should be minified before use */
+
+/* base style declarations */
+/* HTML5 display-role reset for older browsers */
+html, body, article, aside, footer, header, menu, nav, section {
+	display: block;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html {
+  box-sizing: border-box;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 10px; /* basic size setting for entire site */
+	vertical-align: baseline;
+/*	height: 100vh;
+	width: 100vw; */
+/*  overflow breaks the sticky function */
+/*	overflow-x: hidden; /* no horizontal scrollbar */
+/*  overflow:auto; /* scrollbars space not subtracted from viewport */
+/*	overflow: scroll; /*scrollbars space is subtracted from viewport */
+/*  ::-webkit-scrollbar { display: none; } */
+}
+body {
+	background-color: #ccccff; /* fallback */
+	margin: 0;
+/*	min-height: 100vh; */
+	font-family: "Merriweather", serif;
+/*	font-family: "Roboto Slab", serif;
+	font-family: "Roboto", sans-serif;
+	font-family: "Rubik", sans-serif;
+	font-family: "Cabin Bold", sans-serif;
+	font-family: "CantoraOne", sans-serif; */
+user-select: none; /* disable right click functions*/
+-moz-user-select: none;
+-webkit-user-select: none;
+-o-user-select: none;
+}
+
+/*body * { outline: 3px #f00 solid; }*/
+
+a:link {color: #0000ff;}
+a:active {color: #ff0000;}
+a:visited {color: #d000d0;}
+
+/* =============== */
+/* make our display responsive to the screen size */
+/* we use approximately these fixed size breakpoints */
+/* for each display page size (width) */
+/* [1 column 100%] lte 480 [2 column 50%] gte 481 & lte 600 [3 column 33.3%] gte 601 & lte 840 [4 column 25%] gte 841 & lte 960*/
+/* [5 column 20%] gte 961 & lte 1280 [6 column 16.7%] gte 1281 & lte 1440 [7 column 14.3%] gte 1441 & lte 1920 [8 column 12.5%] gte 1921 */
+/* on modern browsers the scrollbars are generally 17 pixels wide */
+ 
+/* XSMALL Extra small devices (phones, up to 480px) */
+/* one column gallery */
+@media screen and (max-width: 480px) {
+ol, ul, li {font: 4.8vw Cabin Bold;}
+.menuColumn {font: 4.8vw CantoraOne; width: 90vw;}
+.menuEntry {font: 4.8vw Cabin Bold; width: 90vw;}
+.material-icons, .mdi {font-size: 4.8vw;}
+button {font-size: 4.8vw;}
+.galleryColumn {flex: 100%; max-width: 100%;}
+.galleryFigCap {font-size: 4vw;}
+.galleryFigDesc {font-size: 4vw;}
+.modalFigCap {font-size: 3.6vw;}
+.modalFigDesc {font-size: 3.6vw;}
+.closeModalButton, .tagButton, .deleteButton, .tagCount, .closeButton, .exitButton, .next, .prev, .numberText {font: 3.8vw CantoraOne;}
+footer > details > summary {font: 3.6vw Roboto; font-weight: bold;}
+footer > details > p {font-size: 3.6vw;}
+/* semantic elements font selections */
+H1 {font: 7vw Roboto Slab, serif; font-weight: bold;}
+H2 {font: 5vw Roboto, sans-serif; font-weight: bold;}
+H3 {font: 4.5vw Roboto, sans-serif;	font-weight: bold;}
+H4 {font: 3vw Roboto, sans-serif;}
+H5 {font: 2vw Roboto, sans-serif;}
+H6 {font: 1.5vw Roboto, sans-serif;}
+p {font: 4.5vw Merriweather, serif;/*  text-shadow: 4px 4px 4px #aaa; */}
+.listing {font-size: 4vw;}					   
+#imageForm {font-size: 5vw;}
+#verboseCheckbox { height: 5vw; width: 5vw;}
+#profilePic { transform: scale(1,1); -webkit-transform: scale(1,1);	-moz-transform: scale(1,1);}
+#userForm {font-size: 5vw;}
+#deleteCheckbox { height: 5vw; width: 5vw;}
+#deleteALL { height: 5vw; width: 5vw;}
+#confirmForm, #shareForm {	font: 5vw Roboto, sans-serif; font-weight: bold;}
+}
+/* SMALL Small devices (phones/tablets, 481px up to 600px) */
+/* two column gallery */
+@media screen and (min-width: 481px) and (max-width: 600px) {
+ol, ul, li {font: 3.6vw Cabin Bold;}
+.menuColumn {font: 3.6vw CantoraOne; width: 90vw;}
+.menuEntry {font: 3.6vw Cabin Bold; width: 90vw;}
+.material-icons, .mdi {font-size: 3.6vw;}
+button {font-size: 3.6vw;}
+.galleryColumn {flex: 50%; max-width: 50%;}
+.galleryFigCap {font-size: 3vw;}
+.galleryFigDesc {font-size: 3vw;}
+.modalFigCap {font-size: 3.6vw;}
+.modalFigDesc {font-size: 3.6vw;}
+.closeModalButton, .tagButton, .deleteButton, .tagCount, .closeButton, .exitButton, .next, .prev, .numberText {font: 3.8vw CantoraOne;}
+footer > details > summary {font: 3.2vw Roboto; font-weight: bold;}
+footer > details > p {font-size: 3.2vw;}
+/* semantic elements font selections */
+H1 {font: 5.2vw Roboto Slab, serif; font-weight: bold;}
+H2 {font: 4.2vw Roboto, sans-serif;	font-weight: bold;}
+H3 {font: 4vw Roboto, sans-serif; font-weight: bold;}
+H4 {font: 2.8vw Roboto, sans-serif;}
+H5 {font: 2vw Roboto, sans-serif;}
+H6 {font: 1.5vw Roboto, sans-serif;}
+p {font: 4vw Merriweather, serif;/*  text-shadow: 4px 4px 4px #aaa; */}
+.listing {font-size: 3.8vw;}					   
+#imageForm {font-size: 4.2vw;}
+#verboseCheckbox { height: 4.2vw; width: 4.2vw;}
+#profilePic { transform: scale(1.2,1.2); -webkit-transform: scale(1.2,1.2);	-moz-transform: scale(1.2,1.2);}
+#userForm {font-size: 4.2vw;}
+#deleteCheckbox { height: 4.2vw; width: 4.2vw;}
+#deleteALL { height: 4.2vw; width: 4.2vw;}
+#confirmForm, #shareForm {	font: 4.2vw Roboto, sans-serif; font-weight: bold;}
+}
+/* MEDIUM SMALL phones/tablets/laptops 601px to 840px */
+/* three column gallery */
+@media screen and (min-width: 601px) and (max-width: 840px) {
+ol, ul, li {font: 3vw Cabin Bold;}
+.menuColumn {font: 3vw CantoraOne; width: 90vw;}
+.menuEntry {font: 3vw Cabin Bold; width: 90vw;}
+.material-icons, .mdi {font-size: 3vw;}
+button {font-size: 3vw;}
+.galleryColumn {flex: 33.3%; max-width: 33.3%;}
+.galleryFigCap {font-size: 2.3vw;}
+.galleryFigDesc {font-size: 2.3vw;}
+.modalFigCap {font-size: 3vw;}
+.modalFigDesc {font-size: 3vw;}
+.closeModalButton, .tagButton, .deleteButton, .tagCount, .closeButton, .exitButton, .next, .prev, .numberText {font: 3.4vw CantoraOne;}
+footer > details > summary {font: 3.0vw Roboto; font-weight: bold;}
+footer > details > p {font-size: 3.0vw;}
+/* semantic elements font selections */
+H1 {font: 5vw Roboto Slab, serif; font-weight: bold;}
+H2 {font: 3.6vw Roboto, sans-serif;	font-weight: bold;}
+H3 {font: 3.2vw Roboto, sans-serif; font-weight: bold;}
+H4 {font: 2.4vw Roboto, sans-serif;}
+H5 {font: 2vw Roboto, sans-serif;}
+H6 {font: 1.5vw Roboto, sans-serif;}
+p {font: 3.2vw Merriweather, serif;/*  text-shadow: 4px 4px 4px #aaa; */}
+.listing {font-size: 3vw;}					   
+#imageForm {font-size: 3.6vw;}
+#verboseCheckbox { height: 3.6vw; width: 3.6vw Roboto;}
+#profilePic { transform: scale(1.4,1.4); -webkit-transform: scale(1.4,1.4);	-moz-transform: scale(1.4,1.4);}
+#userForm {font-size: 3.6vw;}
+#deleteCheckbox { height: 3.6vw; width: 3.6vw;}
+#deleteALL { height: 3.6vw; width: 3.6vw;}
+#confirmForm, #shareForm {	font: 3.6vw Roboto, sans-serif; font-weight: bold;}
+}
+/* SMALL TO MEDIUM phones/tablets/laptops 841px to 960px */
+/* four column gallery */
+@media screen and (min-width: 841px) and (max-width: 960px) {
+ol, ul, li {font: 2.8vw Cabin Bold;}
+.menuColumn {font: 2.8vw CantoraOne; width: 90vw;}
+.menuEntry {font: 2.8vw Cabin Bold; width: 90vw;}
+.material-icons, .mdi {font-size: 2.8vw;}
+button {font-size: 2.8vw;}
+.galleryColumn {flex: 25%; max-width: 25%;}
+.galleryFigCap {font-size: 2.1vw;}
+.galleryFigDesc {font-size: 2.1vw;}
+.modalFigCap {font-size: 2.8vw;}
+.modalFigDesc {font-size: 2.8vw;}
+.closeModalButton, .tagButton, .deleteButton, .tagCount, .closeButton, .exitButton, .next, .prev, .numberText {font: 2.8vw CantoraOne;}
+footer > details > summary {font: 2.8vw Roboto; font-weight: bold;}
+footer > details > p {font-size: 2.8vw;}
+/* semantic elements font selections */
+H1 {font: 4.5vw Roboto Slab, serif; font-weight: bold;}
+H2 {font: 3.0vw Roboto, sans-serif;	font-weight: bold;}
+H3 {font: 2.8vw Roboto, sans-serif; font-weight: bold;}
+H4 {font: 2.2vw Roboto, sans-serif;}
+H5 {font: 2vw Roboto, sans-serif;}
+H6 {font: 1.5vw Roboto, sans-serif;}
+p {font: 2.8vw Merriweather, serif;/*  text-shadow: 4px 4px 4px #aaa; */}
+.listing {font-size: 2.6vw;}					   
+#imageForm {font-size: 3.0vw;}
+#verboseCheckbox { height: 3.0vw; width: 3.0vw;}
+#profilePic { transform: scale(1.5,1.5); -webkit-transform: scale(1.5,1.5);	-moz-transform: scale(1.5,1.5);}
+#userForm {font-size: 3vw;}
+#deleteCheckbox { height: 3vw; width: 3vw;}
+#deleteALL { height: 3vw; width: 3vw;}
+#confirmForm, #shareForm {	font: 3.0vw Roboto, sans-serif; font-weight: bold;}
+}
+/* MEDIUM tablets/laptops 961px to 1280px */
+/* five column gallery */
+@media screen and (min-width: 961px) and (max-width: 1280px) {
+ol, ul, li {font: 1.8vw Cabin Bold;}
+.menuColumn {font: 1.8vw CantoraOne; width: 90vw;}
+.menuEntry {font: 1.8vw Cabin Bold; width: 90vw;}
+.material-icons, .mdi {font-size: 1.8vw;}
+button {font-size: 1.5vw;}
+.galleryColumn {flex: 20%; max-width: 20%;}
+.galleryFigCap {font-size: 1.7vw;}
+.galleryFigDesc {font-size: 1.7vw;}
+.modalFigCap {font-size: 1.5vw;}
+.modalFigDesc {font-size: 1.5vw;}
+.closeModalButton, .tagButton, .deleteButton, .tagCount, .closeButton, .exitButton, .next, .prev, .numberText {font: 1.5vw CantoraOne;}
+footer > details > summary {font: 1.8vw Roboto; font-weight: bold;}
+footer > details > p {font-size: 1.8vw;}
+/* semantic elements font selections */
+H1 {font: 4.5vw Roboto Slab, serif; font-weight: bold;}
+H2 {font: 2.8vw Roboto, sans-serif; font-weight: bold;}
+H3 {font: 2.5vw Roboto, sans-serif; font-weight: bold;}
+H4 {font: 2.1vw Roboto, sans-serif;}
+H5 {font: 2vw Roboto, sans-serif;}
+H6 {font: 1.5vw Roboto, sans-serif;}
+p {font: 2.5vw Merriweather, serif;/*  text-shadow: 4px 4px 4px #aaa; */}
+.listing {font-size: 2.3vw;}					   
+#imageForm {font-size: 2.8vw;}
+#verboseCheckbox { height: 2.8vw; width: 2.8vw;}
+#profilePic { transform: scale(1.75,1.75); -webkit-transform: scale(1.75,1.75);	-moz-transform: scale(1.75,1.75);}
+#userForm {font-size: 2.8vw;}
+#deleteCheckbox { height: 2.8vw; width: 2.8vw;}
+#deleteALL { height: 2.8vw; width: 2.8vw;}
+#confirmForm, #shareForm {	font: 2.8vw Roboto, sans-serif; font-weight: bold;}
+}
+/* LARGE laptops and desktops 1281px to 1440px */
+/* six column gallery */
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+ol, ul, li {font: 1.6vw Cabin Bold;}
+.menuColumn {font: 1.6vw CantoraOne;}
+.menuEntry {font: 1.6vw Cabin Bold;}
+.material-icons, .mdi {font-size: 1.6vw;}
+button {font-size: 1.6vw;}
+.galleryColumn {flex: 16.6%; max-width: 16.6%;}
+.galleryFigCap {font-size: 1.5vw;}
+.galleryFigDesc {font-size: 1.5vw;}
+.modalFigCap {font-size: 1.6vw;}
+.modalFigDesc {font-size: 1.6vw;}
+.closeModalButton, .tagButton, .deleteButton, .tagCount, .closeButton, .exitButton, .next, .prev, .numberText {font: 1.6vw CantoraOne;}
+footer > details > summary {font: 1.6vw Roboto; font-weight: bold;}
+footer > details > p {font-size: 1.6vw;}
+/* semantic elements font selections */
+H1 {font: 4vw Roboto Slab, serif; font-weight: bold;}
+H2 {font: 2vw Roboto, sans-serif; font-weight: bold;}
+H3 {font: 1.6vw Roboto, sans-serif; font-weight: bold;}
+H4 {font: 1.2vw Roboto, sans-serif;}
+H5 {font: 1vw Roboto, sans-serif;}
+H6 {font: .8 Roboto, sans-serif;}
+p {font: 1.6vw Merriweather, serif;/*  text-shadow: 4px 4px 4px #aaa; */}
+.listing {font-size: 1.4vw;}					   
+#imageForm {font-size: 2vw;}
+#verboseCheckbox { height: 2vw; width: 2vw;}
+#profilePic { transform: scale(2,2); -webkit-transform: scale(2,2);	-moz-transform: scale(2,2);}
+#userForm {font-size: 2vw;}
+#deleteCheckbox { height: 2vw; width: 2vw;}
+#deleteALL { height: 2vw; width: 2vw;}
+#confirmForm, #shareForm {	font: 2vw Roboto, sans-serif; font-weight: bold;}
+}
+/* LARGER laptops and desktops 1441px to 1920 */
+/* seven column gallery */
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+ol, ul, li {font: 1.3vw Cabin Bold;}
+.menuColumn {font: 1.3vw CantoraOne;}
+.menuEntry {font: 1.3vw Cabin Bold;}
+.material-icons, .mdi {font-size: 1.6vw;}
+button {font-size: 1.6vw;}
+.galleryColumn {flex: 14.25%; max-width: 14.25%;}
+.galleryFigCap {font-size: 1.2vw;}
+.galleryFigDesc {font-size: 1.2vw;}
+.modalFigCap {font-size: 1.3vw;}
+.modalFigDesc {font-size: 1.3vw;}
+.closeModalButton, .tagButton, .deleteButton, .tagCount, .closeButton, .exitButton, .next, .prev, .numberText {font: 1.3vw CantoraOne;}
+footer > details > summary {font: 1.3vw Roboto; font-weight: bold;}
+footer > details > p {font-size: 1.3vw;}
+/* semantic elements font selections */
+H1 {font: 3vw Roboto Slab, serif; font-weight: bold;}
+H2 {font: 2vw Roboto, sans-serif;	font-weight: bold;}
+H3 {font: 1.6vw Roboto, sans-serif; font-weight: bold;}
+H4 {font: 1.2vw Roboto, sans-serif;}
+H5 {font: 2vw Roboto, sans-serif;}
+H6 {font: 1.5vw Roboto, sans-serif;}
+p {font: 1.6vw Merriweather, serif;/*  text-shadow: 4px 4px 4px #aaa; */}
+.listing {font-size: 1.4vw;}					   
+#imageForm {font-size: 2vw;}
+#verboseCheckbox { height: 2vw; width: 2vw;}
+#profilePic { transform: scale(2.5,2.5); -webkit-transform: scale(2.5,2.5);	-moz-transform: scale(2.5,2.5);}
+#userForm {font-size: 2vw;}
+#deleteCheckbox { height: 2vw; width: 2vw;}
+#deleteALL { height: 2vw; width: 2vw;}
+#confirmForm, #shareForm {	font: 2vw Roboto, sans-serif; font-weight: bold;}
+}
+/* LARGEST laptops and desktops above 1920px and up--- */
+/* eight column gallery */
+@media screen and (min-width: 1921px) {
+ol, ul, li {font: 1.6vw Cabin Bold;}
+.menuColumn {font: 1.6vw CantoraOne;}
+.menuEntry {font: 1.vw Cabin Bold;}
+.material-icons, .mdi {font-size: 1.6vw;}
+button {font-size: 1.4vw;}
+.galleryColumn {flex: 12.5%; max-width: 12.5%;}
+.galleryFigCap {font-size: 1vw;}
+.galleryFigDesc {font-size: 1vw;}
+.modalFigCap {font-size: 1.0vw;}
+.modalFigDesc {font-size: 1.0vw;}
+.closeModalButton, .tagButton, .deleteButton, .tagCount, .closeButton, .exitButton, .next, .prev, .numberText {font: 1.0vw CantoraOne;}
+footer > details > summary {font: 1.3vw Roboto; font-weight: bold;}
+footer > details > p {font-size: 1.3vw;}
+/* semantic elements font selections */
+H1 {font: 3vw Roboto Slab, serif;	font-weight: bold;}
+H2 {font: 2vw Roboto, sans-serif;	font-weight: bold;}
+H3 {font: 1.6vw Roboto, sans-serif; font-weight: bold;}
+H4 {font: 1.2vw Roboto, sans-serif;}
+H5 {font: 2vw Roboto, sans-serif;}
+H6 {font: 1.5vw Roboto, sans-serif;}
+p {font: 1.6vw Merriweather, serif;/*  text-shadow: 4px 4px 4px #aaa; */}
+.listing {font-size: 1.4vw;}					   
+#imageForm {font-size: 2vw;}
+#verboseCheckbox { height: 2vw; width: 2vw;}
+#profilePic { transform: scale(3,3); -webkit-transform: scale(3,3);	-moz-transform: scale(3,3);}
+#userForm {font-size: 2vw;}
+#deleteCheckbox { height: 2vw; width: 2vw;}
+#deleteALL { height: 2vw; width: 2vw;}
+#confirmForm, #shareForm {	font: 2vw Roboto, sans-serif; font-weight: bold;}
+}
+.material-icons { /* center icons with font */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+.mdi { /* center icons with font */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* ================ */
+/* style the header */
+/*<!-- ++++++++++++++++++++++ --> */
+.myHeader {
+	position: relative;
+	top: 0;
+	padding: 0;
+	border: 0;
+	margin-top: 1vw;
+	width: 95vw;
+	height: 22vw;
+}
+.Logo {
+  display: block;
+	top: 0vw;
+	margin: 1vw;
+    height: 18vw; 
+    width: 18vw; 
+    max-width: 20vw; 
+    max-height: 20vw;
+}
+
+.myHeader .toggleLogo {
+  display: block;
+	position: absolute;
+  top: 0vw;
+  left: 0;
+	height: 20vw;
+	min-width: 20vw;
+	opacity: 0;
+  background-color: #8080ff;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 1s;
+}
+.sitename {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: 20vw;
+	text-align: center;
+	padding-left: auto;
+	border: 0;
+	vertical-align: 50%;
+	margin-top: 0;
+	max-width: 75vw;
+	min-width: 70vw;
+	font-family: Merriweather Black;
+	color: #000080;
+	font-size: 12vw;
+}
+.siteSubtitle {
+	position: absolute;
+	left: 0;
+	top: 17vw;
+	margin-left: 20vw;
+	text-align: center;
+	padding-left: auto;
+	border: 0;
+	vertical-align: 50%;
+	max-width: 75vw;
+	min-width: 70vw;
+	font-family: Merriweather Black;
+	color: #000080;
+	font-size: 3.2vw;
+}
+
+/* ================ */
+/* style the navbar menu */
+button {
+	margin-top: 0;
+	margin-left: 0;
+	border-radius: .6vw;
+	border-image-outset: .6rem;
+	box-shadow: inset .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	-webkit-box-shadow: .2rem .2rem .2rem .2em rgba(0,0,0,0.6);
+	-moz-box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	padding: .5vw .5vw;
+	vertical-align: middle;
+	text-decoration: none;
+  cursor: pointer;
+  background: #8080ff;
+  color: white;
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-right: .5vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  max-width: 10vw;
+  font-family: "CantoraOne", sans-serif;
+  transition: 3s;
+}
+button:hover,
+button:focus {
+  color: #000000;
+  background: #ff0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+ol, ul, li {
+	list-style: none;
+	padding: .2vw .5vw .2vw .8vw;
+	margin: .3vw .8vw;
+	-webkit-padding-start: 0;
+}
+.menuColumn {
+	-webkit-padding-start: 0;
+}
+/* class navbar-wrapper surrounding .navbar */
+/* used for positioning it into place. */
+.isStuck {
+    left: 0;
+	top: 0;
+    width: 85vw;
+}
+.isStuck .navbar {
+	background: -webkit-gradient(linear, center top, center bottom, from(#fff), to(#ccc));
+	background-image: linear-gradient(#fff, #ccc);
+/*	width: 100%; */
+	left: 0;
+    width: 85vw;
+	margin-right: 0;
+	margin-top: -1vh;
+}
+/* class navbar-wrapper surrounding .navbar */
+/* used for positioning it into place. */
+.navbar-wrapper {
+  position: relative;
+  left: 0;
+  /*display: block;*/
+  top: 0;
+  z-index: 15;
+}
+/* for turning .navbar on or off. */
+.navbar {
+    display: none;
+}
+nav {
+	margin-top: 0;
+	left: 0;
+	width: 98vw;
+	margin-right: .5vw;
+	margin-left: .5vw;
+	border-radius: .6vw;
+	border-image-outset: .6rem;
+	box-shadow: inset .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	-webkit-box-shadow: .2rem .2rem .2rem .2em rgba(0,0,0,0.6);
+	-moz-box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	padding: 0 0;
+}
+.menu li {
+	float: left;
+	position: relative;
+}
+.menu li a {
+	color: #444;
+	display: block;
+	vertical-align: middle;
+	text-decoration: none;
+}
+.menu li a:hover {
+	background: -webkit-gradient(linear, center top, center bottom, from(#ededed), to(#fff));
+	background-image: linear-gradient(#ededed, #fff);
+	border-radius: .2vw;
+	border: .6rem double rgba(255,64,64,0.9);
+	border-image-outset: .6rem;
+	box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	-webkit-box-shadow: .2rem .2rem .2rem .2em rgba(0,0,0,0.6);
+	-moz-box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	color: #222;
+}
+/* Dropdown styles */
+.menu ul {
+	position: absolute;
+	left: -9999px;
+	list-style: none;
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+.menu ul li {
+	float: none;
+}
+.menu ul a {
+	white-space: nowrap;
+}
+/* Displays the dropdown on hover and moves back into position */
+.menu li:hover ul {
+	background: rgba(234,234,234,1);
+	border-radius: 0 0 .6vw .6vw;
+  border-image-outset: .6rem;
+	box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	-webkit-box-shadow: .2rem .2rem .2rem .2em rgba(0,0,0,0.6);
+	-moz-box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	left: .5vw;
+	opacity: 1;
+	z-index: 16;
+}
+/* Persistent Hover State */
+.menu li:hover a {
+	background: -webkit-gradient(linear, center top, center bottom, from(#ccc), to(#ededed));
+	background-image: linear-gradient(#ccc, #ededed);
+	border-radius: .2vw;
+  border-image-outset: .6rem;
+	box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	-webkit-box-shadow: .2rem .2rem .2rem .2em rgba(0,0,0,0.6);
+	-moz-box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	color: #222;
+}
+.menu li:hover ul a {
+	background: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+.menu li:hover ul li a:hover {
+	background: -webkit-gradient(linear, center top, center bottom, from(#eee), to(#fff));
+	background-image: linear-gradient(#ededed, #fff);
+	border-radius: .2vw;
+  border-image-outset: .6rem;
+	box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	-webkit-box-shadow: .2rem .2rem .2rem .2em rgba(0,0,0,0.6);
+	-moz-box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+}
+.clearfix {
+	clear: both;
+}
+
+/* is it our form */
+/* ===================== */
+#uploadForm {
+	display: block;
+	position: relative;
+	top: -3vw;
+	padding-left: 2vw
+}
+#imageForm {
+	top: 0;
+	color: #4020ff;
+	margin: 0;
+}
+#verboseCheckbox {
+  color: #808080;
+  padding: .4vw .4vw;
+  cursor: pointer;
+    outline: .1vw solid black;
+}
+
+/* ===================== */
+#deleteForm {
+	display: block;
+	position: relative;
+	top: -3vw;
+	padding-left: 2vw
+}
+#userForm {
+	top: 0;
+	color: #d02040;
+	margin: 0;
+}
+#deleteCheckbox {
+  color: #808080;
+  padding: .4vw .4vw;
+  cursor: pointer;
+    outline: .1vw solid black;
+}
+#deleteALL {
+  color: #808080;
+  padding: .4vw .4vw;
+  cursor: pointer;
+    outline: .1vw solid black;
+}
+
+/* ===================== */
+#deleteConfirmForm {
+	display: block;
+	position: relative;
+	padding-left: 2vw
+}
+#confirmForm {
+	top: 0;
+	color: #ff8000;
+	margin: 0;
+}
+#shareForm {
+	top: 0;
+	color: #ff8000;
+	margin: 0;
+}
+
+* our user data display */
+/* ===================== */
+#loginButton {
+/*	display: block; */
+	position: relative;
+	margin-left: 5vw;
+	width: 40vw;
+}
+#shareButton {
+/*	display: block; */
+	position: relative;
+	margin-left: 5vw;
+	width: 40vw;
+}
+#shareButton:hover {
+/*	display: block; */
+	position: relative;
+	margin-left: 5vw;
+	width: 40vw;
+	background: -webkit-gradient(linear, center top, center bottom, from(#eee), to(#fff));
+	background-image: linear-gradient(#ededed, #fff);
+	border-radius: .5vw;
+  border-image-outset: .5vw;
+	box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+	-webkit-box-shadow: .2rem .2rem .2rem .2em rgba(0,0,0,0.6);
+	-moz-box-shadow: .2rem .2rem .2rem .2rem rgba(0,0,0,0.6);
+}
+.profile-data-box {
+	padding-left: 0;
+}
+#profileHdr {
+	display: block;
+	position: relative;
+	padding-left: 4vw;
+}
+#profilePic {
+	top: 0;
+	}
+#profileTitl {
+	position: absolute;
+	top: -2vw;
+	max-width: 50vw;
+	left: 15vw;
+}
+#profileData {
+	display: block;
+	position: relative;
+	top: 2vw;
+}
+#FBlogoutButton {
+	display: block;
+	position: relative;
+	margin-left: 5vw;
+	padding-top: 2vw;
+	width: 40vw;
+}
+#logoutButton {
+	display: block;
+	position: relative;
+	margin-left: 5vw;
+	padding-top: 2vw;
+	width: 40vw;
+}
+	
+.fb-like {
+	display: block;
+/*	position: absolute;*/
+	top: -1vw;
+	right: 0;
+	padding-left: 2vw;
+	transform: scale(2.5);
+	-webkit-transform: scale(2.5);
+	-moz-transform: scale(2.5);
+}
+	
+/* ================ */
+/* style the main content */
+article {
+	position: relative;
+	top: 0;
+	padding: 0;
+	border: 0;
+	margin-top: 1vw;
+	margin-left: 1vw;
+	margin-right: 1vw;
+	margin-bottom: 6vw;
+	width: 95%;
+}
+.subhead {
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	color: #000080;
+}
+/* style blockquotes */
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+p {
+	margin-left: 2vw;
+	margin-right: 2vw;
+}
+p.listing {
+	color: #8000ff;
+	font-family: Roboto;
+}
+/* ================== */
+/* use details tag for captions */
+.galleryFigure details > summary {
+  z-index: 1;
+  padding: .1vw .2vw;
+  width: 100%;
+  max-width: 100%;
+  text-align:center;
+  background-color: #ddd;
+  border: none;
+  box-shadow: .1vw .1vw .1vw black;
+  list-style: none;
+}
+.galleryFigure details > summary:hover {
+  z-index: 1;
+  padding: .1vw .2vw;
+  background-color: #ccccff;
+  border: .6rem double rgba(255,64,64,0.9);
+  border-image-outset: .6rem;
+  box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  -webkit-box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  -moz-box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+}
+.galleryFigure details > summary::-webkit-details-marker {
+  display: none;
+}
+.galleryFigure details > div {
+  overflow-x: scroll;
+/*  font-family: "Roboto Slab", serif; */
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: .1vw .2vw;
+  border: .6rem double rgba(255,64,64,0.9);
+  border-image-outset: .6rem;
+  box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  -webkit-box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  -moz-box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  background-color: #ddd;
+}
+/* Add animation (fade in the popupCaption) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:  1;}
+}
+.galleryFigCap {
+	font-family: "Roboto", sans-serif;
+  font-weight: bold;
+/*  width: 85vw; */
+}
+.galleryFigDesc {
+	font-family: "Roboto Slab", serif;
+}
+/* ================== */
+/* image gallery */
+/* style the gallery */
+.galleryRow {
+	margin: 0 0 0 .2vw;
+	flex-wrap: wrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+.galleryRow::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.galleryRow > .galleryColumn {
+  margin: 0 .4vw;
+}
+.hover-shadow:hover {
+  border: .6rem double rgba(255,64,64,0.9);
+  border-image-outset: .6rem;
+  box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  -webkit-box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  -moz-box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+}
+img.hover-shadow {
+  transition: 0.3s
+}
+figure {
+    display: block;
+    -webkit-margin-before: .1vw;
+    -webkit-margin-after: .1vw;
+    -webkit-margin-start: .1vw;
+    -webkit-margin-end: .1vw;
+}
+.galleryFigure {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* ================= */
+/* style Modal popup for image display */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 20;
+  padding: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+/*  overflow: none; */
+  background-color: black; /* fallback */
+  background-color: rgba(0,0,0,1); /* Black w/ opacity */
+}
+.make-it-fit {
+	-webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+@keyframes zoom {
+    from {transform: scale(0.1)} 
+    to {transform: scale(1)}
+}
+/* Modal caption Banner left side */
+.bannerLeft {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+}
+/* Modal caption Banner right side */
+.bannerRight {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	right: 0;
+}
+/* Modal Banner for content manager */
+.modalBanner {
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	margin: 0;
+	padding: 0;
+}
+/* The Close Modal Button */
+.closeModalButton {
+  cursor: pointer;
+  background: #8080ff;
+  color: white;
+  margin-right: 1vw;
+  padding: .2vw;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.closeModalButton:hover,
+.closeModalButton:focus {
+  color: #000000;
+  background: #ff0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* The tag manager Modal Button */
+.tagButton {
+  cursor: pointer;
+  background: #8080ff;
+  color: white;
+  margin-right: 1vw;
+  padding: .2vw;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.tagButton:hover,
+.tagButton:focus {
+  color: #000000;
+  background: #ff0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* The delete image Button */
+.deleteButton {
+  cursor: pointer;
+  background: #ff4080;
+  margin-right: .1vw;
+  padding: 0;
+  top: 0;
+  right: 0;
+  transition: 0.3s;
+}
+.deleteButton:hover,
+.deleteButton:focus {
+  color: #000000;
+  background: #00ff00;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* The Close manager Modal Button */
+.closeButton {
+  cursor: pointer;
+  background: #8080ff;
+  color: white;
+  margin-right: 1vw;
+  padding: .2vw;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.closeButton:hover,
+.closeButton:focus {
+  color: #000000;
+  background: #ff0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* The Close manager Modal Button */
+.exitButton {
+  cursor: pointer;
+  background: #8080ff;
+  color: white;
+  margin-right: 0;
+  padding: .35vw;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.exitButton:hover,
+.exitButton:focus {
+  color: #000000;
+  background: #ff0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.mySlides {
+  display: none;
+}
+.cursor {
+  cursor: pointer
+}
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  top: 0;
+  padding: .2vw;
+  color: white;
+  background: #8080ff;
+  transition: 0.6s ease;
+  border-radius: 0 .3vw .3vw 0;
+  -webkit-user-select: none;
+}
+/* Position the "previous button" to the left side */
+.prev {
+  left: 0;
+  margin-right: 1vw;
+}
+/* Position the "next button" to the right side */
+.next {
+  right: 0;
+  margin-right: 0;
+}
+/* On hover */
+.prev:hover,
+.next:hover {
+  background: #ff0000; /* fallback */
+  background-color: rgba(255, 0, 0, 1);
+  color: #000000;
+}
+/* Number text (1/3 etc) */
+.numberText {
+  top: 0;
+  left: 0;
+  background: #8080ff;
+  color: #f2f2f2;
+  margin-right: 1vw;
+  padding: .2vw;
+  top: 0;
+  right: 0;
+}
+/* tag counter */
+.tagCount {
+  top: 0;
+  left: 0;
+  background: #c0c0c0;
+  color: #000000;
+  margin-right: 1vw;
+  padding: .2vw;
+  top: 0;
+  right: 0;
+}
+/* ================== */
+/* use details tag for modal captions */
+.modal details {
+  z-index: 1;
+	position: fixed;
+	top: 3vh;
+  margin: .1vw .2vw;
+  width: 100%;
+}
+.modal details > summary {
+  z-index: 1;
+  margin: .1vw .2vw;
+  text-align:center;
+  background-color: #ddd;
+  border: none;
+  box-shadow: .1vw .1vw .1vw black;
+  list-style: none;
+}
+.modal details > summary:hover {
+  z-index: 1;
+  margin: .1vw .2vw;
+/*  width: 100%; */
+  background-color: #ccccff;
+  border: .6rem double rgba(255,64,64,0.9);
+  border-image-outset: .6rem;
+  box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  -webkit-box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  -moz-box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+}
+.modal details > summary::-webkit-details-marker {
+  display: none;
+}
+.modal details > p {
+  width: 100%;
+  margin: auto;
+  margin: .1vw .2vw;
+  border: .6rem double rgba(255,64,64,0.9);
+  border-image-outset: .6rem;
+  box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  -webkit-box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  -moz-box-shadow: 1rem .8rem 1.9rem .8rem rgba(0,0,0,0.6);
+  background-color: #ddd;
+}
+/* Add animation (fade in the popupCaption) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+/* modal image display */
+/* use details tag for captions */
+.modalFigCap {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+.modalFigDesc {
+	font-family: "Roboto Slab", serif;
+}
+
+/* ============= */
+/* Footer Styles */
+footer {
+	position: fixed;
+	z-index: 15;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100 vw;
+	margin: 0;
+	padding: 0;
+	background: -webkit-gradient(linear, center top, center bottom, from(#ddd), to(#888));
+	background-image: linear-gradient(#ddd, #888);
+	text-align: center;
+}
+footer summary {
+		border: .1vw solid rgba(255,64,64,0.9);
+}

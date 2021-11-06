@@ -1,0 +1,357 @@
+/* Comic Builder Forms Pages style sheet */
+
+@font-face {
+	font-family: "Roboto Slab";
+	src: url("../Fonts/RobotoSlab-Regular.ttf") format("truetype");
+  }
+@font-face {
+	font-family: "Roboto Slab Bold";
+	src: url("../Fonts/RobotoSlab-Bold.ttf") format("truetype");
+  }
+@font-face {
+	font-family: "Roboto";
+	src: url("../Fonts/Roboto-Regular.ttf") format("truetype");
+  }
+@font-face {
+	font-family: "Roboto Medium";
+	src: url("../Fonts/Roboto-Medium.ttf") format("truetype");
+  }
+
+@media screen and (max-width: 720px) {
+.card .card-body .card-text {
+ text-align: left;
+ font-size: 2.1vw;
+ }
+#loginButton, #logoutButton {
+	transform: scale(.3, .3);
+}
+}
+@media screen and (min-width: 721px) and (max-width: 1199px) {
+.card .card-body .card-text {
+ text-align: left;
+ font-size: 1.6vw;
+}
+div.fb-like {
+	transform: scale(1.5, 1.5);
+}
+#loginButton, #logoutButton {
+	transform: scale(.4, .4);
+}
+}
+@media screen and (min-width: 1200px) {
+.card .card-body .card-text {
+ text-align: left;
+ font-size: 1.4vw;
+}
+div.fb-like {
+	transform: scale(3, 3);
+}
+#loginButton, #logoutButton {
+	transform: scale(.6, .6);
+}
+}
+#comicsHome {
+width: 4vw;
+height: 3.5vw;
+}
+
+body {
+/*overflow-x: hidden;*/
+font-family: 'Roboto Slab Bold', serif; 
+	font-size: 1.6vw;
+}
+main {
+	/*height: 100%;*/
+}
+a{
+	color: blue;
+}
+form {
+	font-family: 'Roboto Medium', sans-serif; 
+	padding: .5vw 1vw;
+	font-size: 1.8vw;
+}
+form label{
+	font-family: 'Roboto Slab', serif; 
+	padding: .1vw .1vw;
+	margin: 0;
+	font-size: 1.8vw;
+	color: purple;
+}
+section {
+	font-family: 'Roboto Medium', sans-serif; 
+	padding: .5vw 1vw;
+	font-size: 1.8vw;
+	margin-bottom: 1vw;
+}
+h1{
+	font-family: 'Roboto Slab Bold', serif; 
+	font-size: 5.6vw;
+}
+h2{
+	font-family: 'Roboto Slab Bold', serif; 
+	font-size: 2.8vw;
+	margin: .5vw 1vw;
+}
+h3 {
+	font-family: 'Roboto Medium', sans-serif;
+	font-size: 2.4vw;
+	margin: .5vw 1vw;
+}
+h4 {
+	font-family: 'Roboto Medium', sans-serif;
+	font-size: 2.4vw;
+	margin: .5vw 1vw;
+}
+#ComicFooter {
+	font-family: 'Roboto Medium', serif;
+	font-size: 2vw;
+	height: 8vh;
+	position: relative;
+	left: 0;
+	margin: 0;
+	padding: 0;
+}
+
+p .configContent{
+	font-family: 'Roboto Slab Bold', serif;
+	font-size: 1.6vw;
+	margin: .5vw 1vw;
+}
+.navButton {
+ font-size: 1.2vw;
+}
+article .galleryButton {
+	font-family: 'Roboto Medium', sans-serif;
+ font-size: 1.3vw;
+}
+article h1{
+	font-family: 'Roboto Slab Bold', serif; 
+	font-size: 2.0vw;
+	margin: .5vw 1vw;
+}
+article h2{
+	font-family: 'Roboto Medium', serif; 
+	font-size: 1.8vw;
+	margin: .5vw 1vw;
+}
+article h3 {
+	font-family: 'Roboto Medium', sans-serif; 
+	font-size: 1.4vw;
+	margin: .5vw 1vw
+}
+article p{
+	font-family: 'Roboto', serif;
+	font-size: .8vw;
+	margin: .5vw 1vw;
+}
+span{
+	color:red;
+	cursor:pointer;
+}
+input {
+  background: #ffff00;
+}
+textarea {
+  background: #ffff00;
+}
+/* ================ */
+/* style the header */
+/*<!-- ++++++++++++++++++++++ --> */
+.myHeader {
+	position: relative;
+	top: 0;
+	padding: 0;
+	border: 0;
+	margin-top: 1vw;
+	width: 95vw;
+	height: 22vw;
+}
+.Logo {
+  display: block;
+	top: 0vw;
+	margin: 1vw;
+    height: 18vw; 
+    width: 18vw; 
+    max-width: 20vw; 
+    max-height: 20vw;
+}
+
+.myHeader .toggleLogo {
+  display: block;
+	position: absolute;
+  top: 0vw;
+  left: 0;
+	height: 20vw;
+	min-width: 20vw;
+	opacity: 0;
+  background-color: #8080ff;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 1s;
+}
+.sitename {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: 1.5vw;
+	margin-left: 20vw;
+	text-align: center;
+	padding-left: auto;
+	border: 0;
+	vertical-align: 50%;
+	margin-top: 0;
+	max-width: 75vw;
+	min-width: 70vw;
+	font-family: Merriweather Black;
+	color: #000080;
+	font-size: 12vw;
+}
+.siteSubtitle {
+	position: absolute;
+	left: 0;
+	top: 15vw;
+	margin-top: 1.5vw;
+	margin-left: 20vw;
+	text-align: center;
+	padding-left: auto;
+	border: 0;
+	vertical-align: 50%;
+	max-width: 75vw;
+	min-width: 70vw;
+	font-family: Merriweather Black;
+	color: #000080;
+	font-size: 3.2vw;
+}
+#prevpagebutton {
+	font-family: 'Roboto Slab', serif; 
+	font-size: 2.4vw;
+}
+#nextpagebutton {
+	font-family: 'Roboto Slab', serif; 
+	font-size: 2.4vw;
+}
+.checkbox {
+  height: 1.7vw;
+  width: 1.7vw;
+  padding: 2vw 2vw;
+  cursor: pointer;
+  outline: .3vw solid green;
+}
+
+hr {
+    display: block;
+	width: 99vw;
+    height: .5vw;
+    border: 0;
+    margin-bottom: 1vw;
+}
+/* Thick red border */
+.new4 {
+    border-bottom: .8vw solid red;
+}
+/* Thin blue border */
+.new3 {
+  border-bottom: .4vw solid blue;
+}
+/* Thin dashed blue border */
+.new2 {
+  border-bottom: .4vw dashed blue;
+}
+#form_id{
+	width: 95vw;
+	margin-top: 1vw;
+}
+#add_files{
+	width: 90vw;
+}
+#Upload{
+	font-family: 'Roboto', sans-serif; 
+	padding: .1vw 1vw;
+	font-size: 2.4vw;
+}
+#noZipMadeMsg{
+	text-align: center;
+	border: .5vw;
+	border-style: solid;
+	border-color: #8000FF;
+	padding: .2vw;
+}
+#downloadZip{
+	font-family: 'Roboto', sans-serif; 
+	padding: .1vw 1vw;
+	font-size: 2.8vw;
+	border: .5vw;
+	border-style: solid;
+	border-color: #0000FF;
+	padding: .5vw;
+}
+form #Comicname{
+	color: #ff4000;
+}
+#timeoutMsg{
+	text-align: center;
+	border: .5vw;
+	border-style: solid;
+	border-color: #8000FF;
+	padding: .2vw;
+	color: #6600ff;
+	background: #ffff00;
+}
+/* #configValuesBox{
+	position: relative;
+    top:0;right:0;bottom:0;left:0;
+} */
+#configDisplay{
+	position: relative;
+}
+#configValuesBox > #configValuesBkgnd{
+	position: absolute;
+    right:0;left:0;
+	border: .3vw solid blue;
+	margin-left: 2vw;
+	margin-right: 2vw;
+	background: #f0f0f0;
+	opacity: 0.4;
+	padding-left: 1vw;
+}
+#configValuesBox > #configValues{
+    position: relative;
+    right:0;left:0;
+	z-index: 10;
+	border: .3vw solid blue;
+	margin-left: 2vw;
+	margin-right: 2vw;
+	padding-left: 1vw;
+}
+.redBox {
+	border: .4vw solid red;
+	margin-left: 2vw;
+	margin-right: 2vw;
+	background: #f0f0f0;
+	opacity: 0.85;
+	padding-left: 1vw;
+}
+.msgBox {
+	border: .4vw solid blue;
+	margin-left: 2vw;
+	margin-right: 2vw;
+	background: #f0f0f0;
+	opacity: 0.85;
+	padding-left: 1vw;
+}
+.infoBox {
+	border: .4vw solid #ff8000;
+	margin-left: 2vw;
+	margin-right: 2vw;
+	background: #f0f0f0;
+	opacity: 0.85;
+	padding-left: 1vw;
+}
+.orngBox {
+	border: .4vw solid #ff8000;
+	background: #f0f0f0;
+	opacity: 0.85;
+}
