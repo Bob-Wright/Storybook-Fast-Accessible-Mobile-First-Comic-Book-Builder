@@ -1,1 +1,0 @@
-If our Facebook logon is successful that success is shown by this screen. We can continue from here by clicking "Next" in the Footer.

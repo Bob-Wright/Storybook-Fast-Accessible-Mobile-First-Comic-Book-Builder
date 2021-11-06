@@ -1,1 +1,0 @@
-This page, the Storybook Comic Book Creator, allows us to review our information and then actually invoke the builder with a click.

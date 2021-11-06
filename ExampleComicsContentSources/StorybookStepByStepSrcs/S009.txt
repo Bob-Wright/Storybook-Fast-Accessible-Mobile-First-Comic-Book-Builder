@@ -1,1 +1,0 @@
-At the bottom of the Storybook Comic Book Builder page there is a dialog which now shows that, since we have not done anything, Storybook also has nothing to do.

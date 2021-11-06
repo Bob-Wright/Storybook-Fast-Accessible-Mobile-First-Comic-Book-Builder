@@ -1,2 +1,0 @@
-The new addition to the gallery satisfies the WebAIM evaluation test, altough the eval test flags the card image alternate text as being lengthy. However, the image being described by the alt text is a complex animation which justifies a longer text.
-(Most screen readers truncate this alt text to 125 characters.)

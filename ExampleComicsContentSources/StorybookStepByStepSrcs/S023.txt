@@ -1,1 +1,0 @@
-In order for the comic to be accessible it should also provide meaningful alt text for each of the alternate images, and the alt text presented to the user should reflect the text for that image. So the accessibility should track the content.

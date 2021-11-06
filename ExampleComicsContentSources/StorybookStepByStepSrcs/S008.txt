@@ -1,1 +1,0 @@
-Here we can see that the Storybook Comic Book Builder application landing page satisfies the webAIM evaluation.

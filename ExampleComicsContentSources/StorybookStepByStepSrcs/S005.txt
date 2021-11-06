@@ -1,1 +1,0 @@
-This screen shows the WebAIM evaluation of the user authentication portal.
