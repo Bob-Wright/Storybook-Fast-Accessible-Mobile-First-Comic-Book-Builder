@@ -1,8 +1,19 @@
-/*****************************************************
+/***********************************************************************************************************
 * This script was adapted from Vasplus Programming Blog
-* Website: www.vasplus.info
-* Email: info@vasplus.info
-******************************************************/
+   Fancy Multiple File Upload using Ajax, Jquery and PHP
+   Written by Vasplus Programming Blog
+   Website: www.vasplus.info
+   Email: info@vasplus.info
+  
+  *********************************Copyright Information*****************************************************
+   This script has been released with the aim that it will be useful.
+   Please, do not remove this copyright information from the top of this page.
+  If you want the copyright info to be removed from the script then you have to buy this script.
+  This script must not be used for commercial purpose without the consent of Vasplus Programming Blog.
+  This script must not be sold.
+ All Copy Rights Reserved by Vasplus Programming Blog
+ 14*************************************************************************************************************/
+
 function vpb_multiple_file_uploader(vpb_configuration_settings)
 {
 	this.vpb_settings = vpb_configuration_settings;
